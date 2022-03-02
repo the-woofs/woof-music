@@ -1,0 +1,10 @@
+.SearchBar {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.SearchBar input {
+	margin: 0 auto
+} 

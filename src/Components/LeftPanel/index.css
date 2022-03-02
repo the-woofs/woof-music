@@ -1,0 +1,15 @@
+@import url("../../root.css");
+
+.PanelDiv {
+  height: calc(100vh - 20px);
+  display: flex;
+  flex-direction: row;
+}
+
+.LeftPanel {
+  width: 17vw;
+  height: calc(100vh - 20px);
+  background: var(--background);
+  box-shadow: 0 0 10px var(--black);
+  padding: 10px;
+}

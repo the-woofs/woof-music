@@ -1,0 +1,20 @@
+@import url("../../root.css");
+
+.BottomBar {
+  height: 15vh;
+  padding: 10px 0;
+  background: var(--black);
+  box-shadow: 0 0 10px var(--black);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.BottomBarContainer {
+  margin: 0 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

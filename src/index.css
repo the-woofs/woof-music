@@ -1,0 +1,27 @@
+@import url("./root.css");
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+div#root {
+  min-height: 100vh;
+}
+
+hr {
+  border: solid 1px var(--whiteLight);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", monospace;
+}

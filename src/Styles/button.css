@@ -1,0 +1,25 @@
+@import url("../root.css");
+
+button {
+  background-color: var(--color4);
+  color: var(--color0);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 0.9rem;
+  transition: all 0.2s linear;
+  font-family: "Roboto", sans-serif;
+}
+
+button:hover {
+  background-color: var(--color0);
+  color: var(--color4);
+}
+
+button.cyan {
+  background: var(--color6);
+}
+
+button.cyan:hover {
+  background: var(--color0);
+  color: var(--color6);
+}

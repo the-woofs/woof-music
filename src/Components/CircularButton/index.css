@@ -1,0 +1,13 @@
+@import url("../../Styles/button.css");
+
+.CircularButton {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background: none;
+  color: var(--blackTernary)
+}
+
+.CircularButton:hover {
+  background: none
+}

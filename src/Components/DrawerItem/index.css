@@ -1,0 +1,17 @@
+@import url("../../root.css");
+
+.DrawerItem {
+  padding: 2px;
+}
+
+.DrawerItemContent {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  color: var(--color15);
+}
+
+.DrawerItemContent:hover {
+  background-color: var(--accentColor);
+  color: var(--black);
+}

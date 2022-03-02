@@ -1,0 +1,22 @@
+.HomeScreenCard {
+  background: var(--purple);
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px var(--black);
+  color: var(--black);
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  width: 10vw;
+  height: 10vw;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: inline-block
+}
+
+.HomeScreenCard:hover {
+  box-shadow: 3px 3px 10px var(--purple);
+}
+
+.HomeScreenCard:active {
+  box-shadow: 0px 0px 10px var(--purple);
+}

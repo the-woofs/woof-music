@@ -1,0 +1,15 @@
+@import url("../root.css");
+
+input {
+  border: 1.5px solid var(--color4);
+  background-color: var(--background);
+  border-radius: var(--border-radius);
+  color: var(--foreground);
+  padding: 0.5rem 0.75rem;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  transition: box-shadow 0.3s;
+  outline: none;
+  font-family: "Roboto", sans-serif;
+}

@@ -1,0 +1,32 @@
+@import url("../../root.css");
+
+.HomePage {
+  padding: 20px;
+  margin-left: 2rem;
+}
+
+.HomePage h1 {
+  font-size: 4rem;
+  margin-top: 0;
+  background: linear-gradient(
+    var(--gradientDegree),
+    var(--cyan) 0%,
+    var(--purple) 10%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Icon {
+  width: 80%;
+  height: 80%;
+  margin: auto auto;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}

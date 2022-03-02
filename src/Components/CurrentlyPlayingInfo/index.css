@@ -1,0 +1,13 @@
+.CurrentlyPlayingInfo {
+	display: flex;
+	flex-direction: row;
+	height: 15vh;
+}
+
+.CurrentlyPlayingInfo div {
+	margin: auto 1rem;
+}
+
+.CurrentlyPlayingInfo img {
+	padding: 0.5rem;
+}

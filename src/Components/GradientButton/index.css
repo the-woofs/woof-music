@@ -1,0 +1,23 @@
+@import url("../../root.css");
+@import url("../../Styles/button.css");
+
+button.special {
+  background: var(--pink-purple);
+  transition: all 0.2s linear;
+}
+
+button.special p {
+  margin: 0;
+  transition: all 0.2s linear;
+}
+
+button.special:hover {
+  background: var(--color0);
+}
+
+button.special:hover p {
+  background: var(--pink-purple);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
