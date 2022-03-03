@@ -13,11 +13,15 @@ import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
 function MainScreen() {
   const [track, setTrack] = useState({});
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const [searchPage, setSearchPage] = useState(false);
   const [playlistPage, setPlaylistPage] = useState(false);
   const [homePage, setHomePage] = useState(true);
+
+  const [queue, setQueue] = useState([]);
+  const [currentTrack, setCurrentTrack] = useState(0);
+  const [isUsingQueue, setIsUsingQueue] = useState(false);
 
   useEffect(() => {
     setIsPlaying(true);
@@ -25,6 +29,9 @@ function MainScreen() {
 
   useEffect(() => {
     console.log(track);
+    if (!track === {}) {
+      setIsUsingQueue(true);
+    }
   }, [track]);
 
   return (
@@ -43,7 +50,12 @@ function MainScreen() {
             />
           )}
           {playlistPage && <PlaylistsPage />}
-          {searchPage && <SearchPage trackStateFunction={setTrack} />}
+          {searchPage && (
+            <SearchPage
+              trackStateFunction={setTrack}
+              setIsUsingQueue={setIsUsingQueue}
+            />
+          )}
         </>
         <Router>
           <Routes>
@@ -59,19 +71,39 @@ function MainScreen() {
             />
             <Route
               path="/search"
-              element={<SearchPage trackStateFunction={setTrack} />}
+              element={
+                <SearchPage
+                  trackStateFunction={setTrack}
+                  setIsUsingQueue={setIsUsingQueue}
+                />
+              }
             />
             <Route
               path="/search/:q"
-              element={<SearchPage trackStateFunction={setTrack} />}
+              element={
+                <SearchPage
+                  trackStateFunction={setTrack}
+                  setIsUsingQueue={setIsUsingQueue}
+                />
+              }
             />
             <Route
               path="/search/:q/:page"
-              element={<SearchPage trackStateFunction={setTrack} />}
+              element={
+                <SearchPage
+                  trackStateFunction={setTrack}
+                  setIsUsingQueue={setIsUsingQueue}
+                />
+              }
             />
             <Route
               path="/playlists"
-              element={<PlaylistsPage trackStateFunction={setTrack} />}
+              element={
+                <PlaylistsPage
+                  trackStateFunction={setTrack}
+                  setIsUsingQueue={setIsUsingQueue}
+                />
+              }
             />
           </Routes>
         </Router>
@@ -83,6 +115,9 @@ function MainScreen() {
           albumArt={track["albumArt"]}
           url={track["url"]}
           playing={isPlaying}
+          trackId={currentTrack}
+          isUsingQueue={isUsingQueue}
+          queue={queue}
         />
       </BottomBar>
     </>

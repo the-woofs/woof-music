@@ -7,13 +7,20 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { searchYouTube } from "../../REST/YouTube";
 
 function PlayButtonFromSearch(props) {
-  const { albumName, trackName, artistName, trackStateFunction, albumArt } =
-    props;
+  const {
+    albumName,
+    trackName,
+    artistName,
+    trackStateFunction,
+    albumArt,
+    setIsUsingQueue,
+  } = props;
 
   const onClickFunction = async () => {
     console.log("search");
     console.log(await searchYouTube(`${artistName} - ${trackName}`));
     const tracks = await searchYouTube(`${artistName} - ${trackName}`);
+    setIsUsingQueue(false);
 
     trackStateFunction({
       albumName: albumName,

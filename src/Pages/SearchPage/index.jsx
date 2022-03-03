@@ -9,7 +9,7 @@ import PlayButtonFromSearch from "../../Components/PlayButtonFromSearch";
 import { musicSearch } from "../../REST/Itunes";
 
 function SearchPage(props) {
-  const { trackStateFunction } = props;
+  const { trackStateFunction, setIsUsingQueue } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState({});
 
@@ -53,6 +53,7 @@ function SearchPage(props) {
                     albumName={item.collectionName}
                     albumArt={item.artworkUrl100}
                     trackStateFunction={trackStateFunction}
+                    setIsUsingQueue={setIsUsingQueue}
                   />
                 }
               />
