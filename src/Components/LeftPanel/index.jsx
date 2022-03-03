@@ -4,13 +4,17 @@ import ExplicitArea from "../ExplicitArea";
 import Drawer from "../Drawer";
 
 function LeftPanel(props) {
-  const { children } = props;
+  const { children, homeSetState, searchSetState, playlistSetState } = props;
+
   return (
     <div class="PanelDiv">
       <div class="LeftPanel">
-        <div style={{ height: "2rem" }}>
-        </div>
-        <Drawer />
+        <div style={{ height: "2rem" }}></div>
+        <Drawer
+          homeSetState={homeSetState}
+          searchSetState={searchSetState}
+          playlistSetState={playlistSetState}
+        />
       </div>
 
       <ExplicitArea>{children}</ExplicitArea>

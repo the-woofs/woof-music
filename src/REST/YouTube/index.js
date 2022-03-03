@@ -1,4 +1,4 @@
-const apiUrl = "https://youtube-scrape.herokuapp.com/api";
+const apiUrl = "https://woof-yt-scrape.herokuapp.com/api";
 const cors = "https://cors-woof.herokuapp.com";
 
 async function searchYouTube(terms) {

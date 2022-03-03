@@ -1,0 +1,13 @@
+.Controls {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  height: 100%;
+}
+
+.TopControls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  width: 100%;
+  place-items: center;
+}

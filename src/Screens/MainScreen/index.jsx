@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import Drawer from "../../Components/Drawer";
 import LeftPanel from "../../Components/LeftPanel";
 import BottomBar from "../../Components/BottomBar";
 
@@ -13,16 +12,51 @@ import PlaylistsPage from "../../Pages/PlaylistsPage";
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
 function MainScreen() {
-  const [track, setTrack] = useState({
+  const [track, setTrack] = useState({});
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  });
+  const [searchPage, setSearchPage] = useState(false);
+  const [playlistPage, setPlaylistPage] = useState(false);
+  const [homePage, setHomePage] = useState(true);
+
+  useEffect(() => {
+    setIsPlaying(true);
+  }, []);
+
+  useEffect(() => {
+    console.log(track);
+  }, [track]);
 
   return (
     <>
-      <LeftPanel drawer={<Drawer />}>
+      <LeftPanel
+        homeSetState={setHomePage}
+        searchSetState={setSearchPage}
+        playlistSetState={setPlaylistPage}
+      >
+        <>
+          {homePage && (
+            <HomePage
+              homeSetState={setHomePage}
+              searchSetState={setSearchPage}
+              playlistSetState={setPlaylistPage}
+            />
+          )}
+          {playlistPage && <PlaylistsPage />}
+          {searchPage && <SearchPage trackStateFunction={setTrack} />}
+        </>
         <Router>
           <Routes>
-            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/home"
+              element={
+                <HomePage
+                  homeSetState={setHomePage}
+                  searchSetState={setSearchPage}
+                  playlistSetState={setPlaylistPage}
+                />
+              }
+            />
             <Route
               path="/search"
               element={<SearchPage trackStateFunction={setTrack} />}
@@ -48,6 +82,7 @@ function MainScreen() {
           trackName={track["trackName"]}
           albumArt={track["albumArt"]}
           url={track["url"]}
+          playing={isPlaying}
         />
       </BottomBar>
     </>

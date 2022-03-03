@@ -5,9 +5,11 @@
   width: 36px;
   height: 36px;
   background: none;
-  color: var(--blackTernary)
+  color: var(--blackTernary);
+  background-color: var(--background);
 }
 
 .CircularButton:hover {
-  background: none
+  background-color: var(--accentColor);
+  color: var(--background);
 }

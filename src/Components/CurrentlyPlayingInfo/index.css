@@ -1,13 +1,18 @@
 .CurrentlyPlayingInfo {
-	display: flex;
-	flex-direction: row;
-	height: 15vh;
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
 }
 
 .CurrentlyPlayingInfo div {
-	margin: auto 1rem;
+  margin: auto 1rem;
 }
 
 .CurrentlyPlayingInfo img {
-	padding: 0.5rem;
+  padding: 0.5rem;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }

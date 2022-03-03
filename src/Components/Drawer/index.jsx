@@ -8,35 +8,55 @@ import {
   faCompactDisc,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Drawer() {
+function Drawer(props) {
+  const { homeSetState, searchSetState, playlistSetState } = props;
+  console.log(homeSetState);
   return (
     <div className="Drawer">
-      <a href="/">
+      <span
+        onClick={() => {
+          homeSetState(true);
+          searchSetState(false);
+          playlistSetState(false);
+        }}
+      >
         <DrawerItem>
           <span style={{ fontFamily: "Rubik" }}>
             <FontAwesomeIcon icon={faHome} />
             <span className="DrawerItemText">Home</span>
           </span>
         </DrawerItem>
-      </a>
+      </span>
 
-      <a href="/search">
-      <DrawerItem>
-        <span style={{ fontFamily: "Rubik" }}>
-          <FontAwesomeIcon icon={faSearch} />
-          <span className="DrawerItemText">Search</span>
-        </span>
-      </DrawerItem>
-      </a>
+      <span
+        onClick={() => {
+          homeSetState(false);
+          searchSetState(true);
+          playlistSetState(false);
+        }}
+      >
+        <DrawerItem>
+          <span style={{ fontFamily: "Rubik" }}>
+            <FontAwesomeIcon icon={faSearch} />
+            <span className="DrawerItemText">Search</span>
+          </span>
+        </DrawerItem>
+      </span>
 
-      <a href="/playlists">
-      <DrawerItem>
-        <span style={{ fontFamily: "Rubik" }}>
-          <FontAwesomeIcon icon={faCompactDisc} />
-          <span className="DrawerItemText">Playlists</span>
-        </span>
-      </DrawerItem>
-      </a>
+      <span
+        onClick={() => {
+          homeSetState(false);
+          searchSetState(false);
+          playlistSetState(true);
+        }}
+      >
+        <DrawerItem>
+          <span style={{ fontFamily: "Rubik" }}>
+            <FontAwesomeIcon icon={faCompactDisc} />
+            <span className="DrawerItemText">Playlists</span>
+          </span>
+        </DrawerItem>
+      </span>
     </div>
   );
 }

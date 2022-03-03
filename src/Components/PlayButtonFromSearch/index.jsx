@@ -12,8 +12,9 @@ function PlayButtonFromSearch(props) {
 
   const onClickFunction = async () => {
     console.log("search");
-    console.log(await searchYouTube(`${artistName} - ${trackName} ${albumName}`));
-	  const tracks = await searchYouTube(`${artistName} - ${trackName} ${albumName}`)
+    console.log(await searchYouTube(`${artistName} - ${trackName}`));
+    const tracks = await searchYouTube(`${artistName} - ${trackName}`);
+
     trackStateFunction({
       albumName: albumName,
       trackName: trackName,
