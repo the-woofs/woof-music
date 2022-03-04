@@ -8,6 +8,7 @@ import BottomBar from "../../Components/BottomBar";
 import HomePage from "../../Pages/HomePage";
 import SearchPage from "../../Pages/SearchPage";
 import PlaylistsPage from "../../Pages/PlaylistsPage";
+import QueuePage from "../../Pages/QueuePage";
 
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
@@ -18,9 +19,9 @@ function MainScreen() {
   const [searchPage, setSearchPage] = useState(false);
   const [playlistPage, setPlaylistPage] = useState(false);
   const [homePage, setHomePage] = useState(true);
+  const [queuePage, setQueuePage] = useState(false);
 
   const [queue, setQueue] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState(0);
   const [isUsingQueue, setIsUsingQueue] = useState(false);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ function MainScreen() {
         homeSetState={setHomePage}
         searchSetState={setSearchPage}
         playlistSetState={setPlaylistPage}
+        queueSetState={setQueuePage}
       >
         <>
           {homePage && (
@@ -47,13 +49,17 @@ function MainScreen() {
               homeSetState={setHomePage}
               searchSetState={setSearchPage}
               playlistSetState={setPlaylistPage}
+              queueSetState={setQueuePage}
             />
           )}
           {playlistPage && <PlaylistsPage />}
+          {queuePage && <QueuePage queue={queue} setQueue={setQueue} />}
           {searchPage && (
             <SearchPage
               trackStateFunction={setTrack}
               setIsUsingQueue={setIsUsingQueue}
+              setQueue={setQueue}
+              queue={queue}
             />
           )}
         </>
@@ -65,16 +71,20 @@ function MainScreen() {
                 <HomePage
                   homeSetState={setHomePage}
                   searchSetState={setSearchPage}
+                  queueSetState={setQueuePage}
                   playlistSetState={setPlaylistPage}
                 />
               }
             />
+            <Route path="/queue" element={<QueuePage queue={queue} />} />
             <Route
               path="/search"
               element={
                 <SearchPage
                   trackStateFunction={setTrack}
                   setIsUsingQueue={setIsUsingQueue}
+                  setQueue={setQueue}
+                  queue={queue}
                 />
               }
             />
@@ -84,6 +94,8 @@ function MainScreen() {
                 <SearchPage
                   trackStateFunction={setTrack}
                   setIsUsingQueue={setIsUsingQueue}
+                  setQueue={setQueue}
+                  queue={queue}
                 />
               }
             />
@@ -93,6 +105,8 @@ function MainScreen() {
                 <SearchPage
                   trackStateFunction={setTrack}
                   setIsUsingQueue={setIsUsingQueue}
+                  setQueue={setQueue}
+                  queue={queue}
                 />
               }
             />
@@ -102,6 +116,8 @@ function MainScreen() {
                 <PlaylistsPage
                   trackStateFunction={setTrack}
                   setIsUsingQueue={setIsUsingQueue}
+                  setQueue={setQueue}
+                  queue={queue}
                 />
               }
             />
@@ -115,7 +131,6 @@ function MainScreen() {
           albumArt={track["albumArt"]}
           url={track["url"]}
           playing={isPlaying}
-          trackId={currentTrack}
           isUsingQueue={isUsingQueue}
           queue={queue}
         />

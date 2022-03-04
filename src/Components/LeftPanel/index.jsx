@@ -4,7 +4,13 @@ import ExplicitArea from "../ExplicitArea";
 import Drawer from "../Drawer";
 
 function LeftPanel(props) {
-  const { children, homeSetState, searchSetState, playlistSetState } = props;
+  const {
+    children,
+    homeSetState,
+    searchSetState,
+    playlistSetState,
+    queueSetState,
+  } = props;
 
   return (
     <div class="PanelDiv">
@@ -14,6 +20,7 @@ function LeftPanel(props) {
           homeSetState={homeSetState}
           searchSetState={searchSetState}
           playlistSetState={playlistSetState}
+          queueSetState={queueSetState}
         />
       </div>
 
