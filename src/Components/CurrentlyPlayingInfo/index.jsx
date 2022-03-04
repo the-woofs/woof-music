@@ -5,43 +5,24 @@ import Controls from "../Controls";
 import { useState, useEffect } from "react";
 
 function CurrentlyPlayingInfo(props) {
-  const {
-    artistName,
-    albumArt,
-    trackName,
-    albumName,
-    url,
-    playing,
-    muted,
-    queue,
-    isUsingQueue,
-  } = props;
+  const { artistName, albumArt, trackName, albumName, url, playing, muted } =
+    props;
 
   const [playedValue, setPlayedValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(playing);
   const [newPlayedValue, setNewPlayedValue] = useState(0);
 
-  let urls;
-
-  if (isUsingQueue) {
-    urls = queue.map((song) => song.url);
-  } else {
-    urls = [url];
-  }
-
   const handleProgress = (played) => {
     setPlayedValue(played.played);
   };
-
-  const playerRef = React.createRef();
+  const myRef = React.createRef();
 
   useEffect(() => {
     try {
-      playerRef.current.seekTo(newPlayedValue, "fraction");
+      myRef.current.seekTo(newPlayedValue, "fraction");
     } catch (err) {
       console.log(err);
     }
-    // eslint-disable-next-line
   }, [newPlayedValue]);
 
   return (
@@ -55,14 +36,14 @@ function CurrentlyPlayingInfo(props) {
       </div>
       <div>
         <ReactPlayer
-          url={urls}
+          url={url}
           playing={isPlaying}
           muted={muted}
           height={0}
           width={0}
           id="reactplayer"
           onProgress={handleProgress}
-          ref={playerRef}
+          ref={myRef}
         />
         <Controls
           playedValue={playedValue}

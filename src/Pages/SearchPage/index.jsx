@@ -58,7 +58,6 @@ function SearchPage(props) {
                     albumName={item.collectionName}
                     albumArt={item.artworkUrl100}
                     trackStateFunction={trackStateFunction}
-                    setIsUsingQueue={setIsUsingQueue}
                   />
                 }
               />
