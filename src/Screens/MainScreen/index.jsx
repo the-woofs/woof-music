@@ -20,6 +20,7 @@ function MainScreen() {
   const [playlistPage, setPlaylistPage] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
+  const [queue, setQueue] = useState([]);
 
   useEffect(() => {
     setIsPlaying(true);
