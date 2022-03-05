@@ -39,7 +39,7 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 
 function App() {
-  const [user] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   return (
     <>
@@ -48,7 +48,11 @@ function App() {
           <Route
             path='/*'
             element={
-              <MainScreen isLoggedIn={user} firebaseConfig={firebaseConfig} />
+              <MainScreen
+                isLoggedIn={user}
+                isLoading={loading}
+                firebaseConfig={firebaseConfig}
+              />
             }
           />
           <Route

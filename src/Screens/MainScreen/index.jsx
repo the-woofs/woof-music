@@ -12,7 +12,7 @@ import QueuePage from "../../Pages/QueuePage";
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
 function MainScreen(props) {
-  const { isLoggedIn, firebaseConfig } = props;
+  const { isLoggedIn, firebaseConfig, isLoading } = props;
 
   const [track, setTrack] = useState({});
   const [isPlaying, setIsPlaying] = useState(false);
@@ -41,6 +41,7 @@ function MainScreen(props) {
         queueSetState={setQueuePage}
         // gotta pass this to the panel, then pass it to the drawer, then to the button aaaaaa
         isLoggedIn={isLoggedIn}
+        isLoading={isLoading}
         firebaseConfig={firebaseConfig}
       >
         <>

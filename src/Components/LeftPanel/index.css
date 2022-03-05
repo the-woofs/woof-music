@@ -13,3 +13,27 @@
   box-shadow: 0 0 10px var(--black);
   padding: 10px;
 }
+
+.AccountCenterDiv {
+  height: 4rem;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+hr {
+  margin-bottom: 1.5rem;
+}
+
+.SignedInInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SignedInInfo img {
+  margin-right: 0.5rem;
+}

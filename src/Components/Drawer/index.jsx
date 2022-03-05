@@ -12,7 +12,7 @@ function Drawer(props) {
   const { homeSetState, searchSetState, playlistSetState } = props;
   console.log(homeSetState);
   return (
-    <div className="Drawer">
+    <div className='Drawer'>
       <span
         onClick={() => {
           homeSetState(true);
@@ -23,7 +23,7 @@ function Drawer(props) {
         <DrawerItem>
           <span style={{ fontFamily: "Rubik" }}>
             <FontAwesomeIcon icon={faHome} />
-            <span className="DrawerItemText">Home</span>
+            <span className='DrawerItemText'>Home</span>
           </span>
         </DrawerItem>
       </span>
@@ -38,7 +38,7 @@ function Drawer(props) {
         <DrawerItem>
           <span style={{ fontFamily: "Rubik" }}>
             <FontAwesomeIcon icon={faSearch} />
-            <span className="DrawerItemText">Search</span>
+            <span className='DrawerItemText'>Search</span>
           </span>
         </DrawerItem>
       </span>
@@ -53,7 +53,7 @@ function Drawer(props) {
         <DrawerItem>
           <span style={{ fontFamily: "Rubik" }}>
             <FontAwesomeIcon icon={faCompactDisc} />
-            <span className="DrawerItemText">Playlists</span>
+            <span className='DrawerItemText'>Playlists</span>
           </span>
         </DrawerItem>
       </span>
