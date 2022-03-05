@@ -1,22 +1,12 @@
 import "./index.css";
 
-/*
-PLAYLIST STRUCTURE
-
-{
-    "id": "1",
-    "name": "Playlist 1",
-    "description": "This is a playlist",
-    "owner": "1",
-    "tracks": [...],
-    "createdAt": "2020-01-01T00:00:00.000Z",
-    "updatedAt": "2020-01-01T00:00:00.000Z"
-    thumbnail: "https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg"
-}
-
-*/
+import { getLocalPlaylists } from "../../Functions/localPlaylists";
 
 function PlaylistCard(props) {
+  const localPlaylists = getLocalPlaylists();
+  // Just to do stuff with it before making the cards
+  console.log(localPlaylists);
+
   return <></>;
 }
 
