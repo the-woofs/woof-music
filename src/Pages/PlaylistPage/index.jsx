@@ -15,10 +15,14 @@ function PlaylistPage(props) {
   return (
     <div className='PlaylistPage'>
       <div className='PlaylistHeader'>
-        <img src={playlist.thumbnail} alt={playlist.name} />
+        <img
+          className='Thumbnail'
+          src={playlist.thumbnail}
+          alt={playlist.name}
+        />
         <h1>{playlist.name}</h1>
+        <p>{playlist.description}</p>
       </div>
-      <hr />
       <div className='PlaylistContent'></div>
     </div>
   );

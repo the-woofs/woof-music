@@ -1,0 +1,54 @@
+.PlaylistHeader {
+  padding: 2rem 3rem;
+  display: grid;
+  grid-template:
+    "i c c c c c c c c c c"
+    "i x x x x x x x x x x"
+    "i t t t t t t t t t t";
+  height: 40vh;
+  background: var(--purple-100);
+  margin-bottom: 2rem;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.PlaylistHeader img {
+  grid-area: i;
+  height: 40vh;
+}
+
+.PlaylistHeader h1 {
+  grid-area: c;
+  font-size: 700%;
+  margin: 0.2rem 0;
+}
+
+.PlaylistHeader p {
+  grid-area: x;
+  margin: 0 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.Thumbnail {
+  box-shadow: 0px 0px 10px var(--black);
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blackSecondary);
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--black);
+}
