@@ -26,10 +26,15 @@ function CurrentlyPlayingInfo(props) {
   }, [newPlayedValue]);
 
   return (
-    <div class="Grid">
-      <div className="CurrentlyPlayingInfo">
-        <img src={albumArt} alt={albumName} />
-        <div className="CurrentlyPlayingInfoText">
+    <div class='Grid'>
+      <div className='CurrentlyPlayingInfo'>
+        <div
+          className='AlbumArt'
+          style={{
+            backgroundImage: `url(${albumArt})`,
+          }}
+        ></div>
+        <div className='CurrentlyPlayingInfoText'>
           <h2>{trackName}</h2>
           <span>{artistName}</span>
         </div>
@@ -41,7 +46,7 @@ function CurrentlyPlayingInfo(props) {
           muted={muted}
           height={0}
           width={0}
-          id="reactplayer"
+          id='reactplayer'
           onProgress={handleProgress}
           ref={myRef}
         />

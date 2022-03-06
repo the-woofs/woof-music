@@ -2,11 +2,15 @@
 
 .CircularButton {
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   background: none;
   color: var(--blackTernary);
   background-color: var(--background);
+  transition: all 0.3s ease-in-out;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
 }
 
 .CircularButton:hover {

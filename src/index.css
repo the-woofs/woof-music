@@ -25,3 +25,7 @@ h5,
 h6 {
   font-family: "Rubik", monospace;
 }
+
+* {
+  outline: none;
+}

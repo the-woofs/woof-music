@@ -16,3 +16,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
+
+.AlbumArt {
+  width: 15vh;
+  height: 15vh;
+  overflow: hidden;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

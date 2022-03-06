@@ -14,15 +14,28 @@
 }
 
 .PlaylistCardThumbnailDiv {
-  background-color: var(--black);
   overflow: hidden;
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
+  border-radius: 2.5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 10px;
 }
 
-.PlaylistCardThumbnailDiv img {
-  width: 200px;
-  height: 200px;
-  border-radius: 2.5px;
+.PlaylistCardThumbnailOverlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.PlaylistCardThumbnailOverlay button {
+  transform: scale(0);
+  box-shadow: 0px 0px 5px var(--black);
+}
+
+.PlaylistCard:hover .PlaylistCardThumbnailOverlay button {
+  transform: scale(1);
 }
