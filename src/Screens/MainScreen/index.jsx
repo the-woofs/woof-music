@@ -20,6 +20,7 @@ function MainScreen(props) {
   // Using states to change the page so that the site doesn't have to redirect. Redirecting can cause the player to stop playing.
   const [searchPage, setSearchPage] = useState(false);
   const [playlistPage, setPlaylistPage] = useState(false);
+  const [viewingPlaylist, setViewingPlaylist] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
   const [queue, setQueue] = useState([]);
@@ -39,6 +40,7 @@ function MainScreen(props) {
         searchSetState={setSearchPage}
         playlistSetState={setPlaylistPage}
         queueSetState={setQueuePage}
+        viewingPlaylistSetState={setViewingPlaylist}
         // gotta pass this to the panel, then pass it to the drawer, then to the button aaaaaa
         isLoggedIn={isLoggedIn}
         isLoading={isLoading}
@@ -53,7 +55,12 @@ function MainScreen(props) {
               queueSetState={setQueuePage}
             />
           )}
-          {playlistPage && <PlaylistsPage />}
+          {playlistPage && (
+            <PlaylistsPage
+              isViewingPlaylist={viewingPlaylist}
+              setIsViewingPlaylist={setViewingPlaylist}
+            />
+          )}
           {searchPage && <SearchPage trackStateFunction={setTrack} />}
         </>
       </LeftPanel>

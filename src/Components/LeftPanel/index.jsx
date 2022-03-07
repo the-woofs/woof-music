@@ -23,6 +23,7 @@ function LeftPanel(props) {
     isLoggedIn,
     firebaseConfig,
     isLoading,
+    viewingPlaylistSetState,
   } = props;
 
   initializeApp(firebaseConfig);
@@ -69,6 +70,7 @@ function LeftPanel(props) {
             queueSetState={queueSetState}
             isLoggedIn={isLoggedIn}
             firebaseConfig={firebaseConfig}
+            viewingPlaylistSetState={viewingPlaylistSetState}
           />
           <hr />
           <div class='AccountCenterDiv'>

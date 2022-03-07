@@ -14,9 +14,9 @@
 }
 
 .HomeScreenCard:hover {
-  box-shadow: 3px 3px 10px var(--purple);
+  box-shadow: 3px 3px 10px var(--purple-100);
 }
 
 .HomeScreenCard:active {
-  box-shadow: 0px 0px 10px var(--purple);
+  box-shadow: 0px 0px 10px var(--purple-100);
 }

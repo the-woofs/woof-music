@@ -9,7 +9,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Drawer(props) {
-  const { homeSetState, searchSetState, playlistSetState } = props;
+  const {
+    homeSetState,
+    searchSetState,
+    playlistSetState,
+    viewingPlaylistSetState,
+  } = props;
   console.log(homeSetState);
   return (
     <div className='Drawer'>
@@ -48,6 +53,7 @@ function Drawer(props) {
           homeSetState(false);
           searchSetState(false);
           playlistSetState(true);
+          viewingPlaylistSetState(false);
         }}
       >
         <DrawerItem>

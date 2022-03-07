@@ -22,6 +22,11 @@ function PlaylistPage(props) {
         />
         <h1>{playlist.name}</h1>
         <p>{playlist.description}</p>
+        <div className='PlaylistButtons'>
+          {/* DO THE FREAKING ICONS NEXT TIME BYEEEEE */}
+          <button className='PlayButton'></button>
+          <button className='ShareButton'></button>
+        </div>
       </div>
       <div className='PlaylistContent'></div>
     </div>

@@ -9,9 +9,9 @@ import { getLocalPlaylists } from "../../Functions/localPlaylists";
 console.log(localStorage);
 
 function PlayslitsPage(props) {
+  const { isViewingPlaylist, setIsViewingPlaylist } = props;
   const localPlaylists = getLocalPlaylists();
 
-  const [isViewingPlaylist, setIsViewingPlaylist] = useState(false);
   const [playlistId, setPlaylistId] = useState(null);
   const [isLocal, setIsLocal] = useState(true);
 

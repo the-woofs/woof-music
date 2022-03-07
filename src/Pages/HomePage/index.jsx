@@ -7,9 +7,9 @@ import { faSearch, faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 function HomePage(props) {
   const { homeSetState, searchSetState, playlistSetState } = props;
   return (
-    <div className="HomePage">
+    <div className='HomePage'>
       <h1>Home</h1>
-      <div className="Grid">
+      <div className='HomeCards'>
         <span
           onClick={() => {
             homeSetState(false);
@@ -18,7 +18,7 @@ function HomePage(props) {
           }}
         >
           <HomeScreenCard>
-            <FontAwesomeIcon icon={faSearch} class="Icon" />
+            <FontAwesomeIcon icon={faSearch} class='Icon' />
             <h2>Find Music</h2>
           </HomeScreenCard>
         </span>
@@ -31,7 +31,7 @@ function HomePage(props) {
           }}
         >
           <HomeScreenCard>
-            <FontAwesomeIcon icon={faCompactDisc} class="Icon" />
+            <FontAwesomeIcon icon={faCompactDisc} class='Icon' />
             <h2>Playlists</h2>
           </HomeScreenCard>
         </span>
