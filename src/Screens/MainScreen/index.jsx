@@ -52,6 +52,7 @@ function MainScreen(props) {
               homeSetState={setHomePage}
               searchSetState={setSearchPage}
               playlistSetState={setPlaylistPage}
+              viewingPlaylistSetState={setViewingPlaylist}
               queueSetState={setQueuePage}
             />
           )}

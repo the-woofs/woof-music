@@ -43,12 +43,12 @@ function LeftPanel(props) {
     <div class='PanelDiv'>
       <div class='LeftPanel'>
         <div class='AccountCenterDiv'>
-          {!isLoggedIn && !isLoading && (
+          {/* !isLoggedIn && !isLoading && (
             <GradientButton className='SignInButton' onClick={signInWithGoogle}>
               Sign In
             </GradientButton>
-          )}
-          {isLoggedIn && (
+          ) */}
+          {/* isLoggedIn && (
             <>
               <div class='SignedInInfo'>
                 <Avatar
@@ -60,7 +60,7 @@ function LeftPanel(props) {
                 <h2>{auth.currentUser.displayName}</h2>
               </div>
             </>
-          )}
+          ) */}
         </div>
         <div className='LeftPanelDrawer'>
           <Drawer

@@ -2,7 +2,7 @@
 
 button {
   background-color: var(--color4);
-  color: var(--color0);
+  color: var(--black);
   border: none;
   border-radius: var(--border-radius);
   padding: 0.5rem 0.9rem;
@@ -11,7 +11,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--color0);
+  background-color: var(--black);
   color: var(--color4);
 }
 
@@ -20,6 +20,6 @@ button.cyan {
 }
 
 button.cyan:hover {
-  background: var(--color0);
+  background: var(--black);
   color: var(--color6);
 }

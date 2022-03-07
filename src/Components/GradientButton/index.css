@@ -12,7 +12,7 @@ button.special p {
 }
 
 button.special:hover {
-  background: var(--color0);
+  background: var(--black);
 }
 
 button.special:hover p {

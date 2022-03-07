@@ -37,14 +37,15 @@
 
 .PlayButton {
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 3.9rem;
+  height: 3.9rem;
   background: none;
   background-color: var(--green);
   transition: all 0.3s ease-in-out;
   vertical-align: middle;
   text-align: center;
   display: inline-block;
+  box-shadow: 0 0 5px var(--black);
 }
 
 .PlayButton:hover {
@@ -53,21 +54,22 @@
 
 .ShareButton {
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background: none;
-  background-color: var(--background);
+  background-color: var(--purple);
   color: var(--foreground);
   transition: all 0.3s ease-in-out;
   vertical-align: middle;
   text-align: center;
   display: inline-block;
   margin-left: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 .ShareButton:hover {
-  color: var(--background);
-  background-color: var(--accentColor);
+  color: var(--purple);
+  background-color: var(--background);
 }
 
 .Thumbnail {
