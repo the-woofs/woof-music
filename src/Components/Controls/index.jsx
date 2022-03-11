@@ -3,28 +3,23 @@ import "./index.css";
 import Slider from "react-input-slider";
 
 import CircularButton from "../CircularButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause } from "@fortawesome/free-solid-svg-icons";
+import { PlayArrowRounded, PauseRounded } from "@mui/icons-material";
 
 function Controls(props) {
   const { playedValue, setPlayedValue, isPlaying, setIsPlaying } = props;
 
   return (
-    <div class="Controls">
-      <div class="TopControls">
+    <div class='Controls'>
+      <div class='TopControls'>
         <div />
         <CircularButton onClick={() => setIsPlaying(!isPlaying)}>
-          {isPlaying ? (
-            <FontAwesomeIcon icon={faPause} />
-          ) : (
-            <FontAwesomeIcon icon={faPlay} />
-          )}
+          {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
         </CircularButton>
         <div />
       </div>
       <div>
         <Slider
-          axis="x"
+          axis='x'
           x={playedValue * 100}
           xmax={100}
           xmin={0}

@@ -1,8 +1,8 @@
 import "./index.css";
 
 import CircularButton from "../CircularButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
+
+import { PlayArrowRounded } from "@mui/icons-material";
 
 import { searchYouTube } from "../../REST/YouTube";
 
@@ -26,7 +26,7 @@ function PlayButtonFromSearch(props) {
 
   return (
     <CircularButton onClick={onClickFunction}>
-      <FontAwesomeIcon icon={faPlay} />
+      <PlayArrowRounded />
     </CircularButton>
   );
 }

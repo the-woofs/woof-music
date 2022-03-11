@@ -1,7 +1,8 @@
 import "./index.css";
+import { useState } from "react";
+
 import CircularButton from "../../Components/CircularButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd, faEdit, faPlay } from "@fortawesome/free-solid-svg-icons";
+import { PlayArrowRounded } from "@mui/icons-material";
 
 function PlaylistCard(props) {
   const {
@@ -30,8 +31,8 @@ function PlaylistCard(props) {
         }}
       >
         <div className='PlaylistCardThumbnailOverlay'>
-          <CircularButton>
-            <FontAwesomeIcon icon={faPlay} />
+          <CircularButton className='PlaylistPlayButton'>
+            <PlayArrowRounded />
           </CircularButton>
         </div>
       </div>

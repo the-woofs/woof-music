@@ -1,5 +1,14 @@
 import "./index.css";
+import { useState } from "react";
+
 import { getLocalPlaylists } from "../../Functions/localPlaylists";
+
+import TrackListItem from "../../Components/TrackListItem";
+import {
+  PlayArrowRounded,
+  PauseRounded,
+  ShareRounded,
+} from "@mui/icons-material";
 
 function PlaylistPage(props) {
   const { playlistId, setIsViewingPlaylist, isLocal } = props;
@@ -12,6 +21,12 @@ function PlaylistPage(props) {
     playlist = playlists[playlistId];
   }
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const onClickFunction = () => {
+    setIsPlaying(!isPlaying);
+  };
+
   return (
     <div className='PlaylistPage'>
       <div className='PlaylistHeader'>
@@ -23,12 +38,70 @@ function PlaylistPage(props) {
         <h1>{playlist.name}</h1>
         <p>{playlist.description}</p>
         <div className='PlaylistButtons'>
-          {/* DO THE FREAKING ICONS NEXT TIME BYEEEEE */}
-          <button className='PlayButton'></button>
-          <button className='ShareButton'></button>
+          <button className=' eee PlayButton' onClick={onClickFunction}>
+            {isPlaying ? (
+              <PauseRounded
+                sx={{
+                  fontSize: "2.5rem",
+                }}
+              />
+            ) : (
+              <PlayArrowRounded
+                sx={{
+                  fontSize: "2.5rem",
+                }}
+              />
+            )}
+          </button>
+          <button className=' eee ShareButton'>
+            <ShareRounded />
+          </button>
         </div>
       </div>
-      <div className='PlaylistContent'></div>
+      <div className='PlaylistContent'>
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />{" "}
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />{" "}
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />{" "}
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />{" "}
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={<button>Lorem Ipsum</button>}
+        />
+      </div>
     </div>
   );
 }
