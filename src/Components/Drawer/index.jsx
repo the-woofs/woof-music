@@ -1,12 +1,11 @@
 import "./index.css";
 
 import DrawerItem from "../DrawerItem";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
-  faSearch,
-  faCompactDisc,
-} from "@fortawesome/free-solid-svg-icons";
+  HomeRounded,
+  SearchRounded,
+  LibraryMusicRounded,
+} from "@mui/icons-material";
 
 function Drawer(props) {
   const {
@@ -26,8 +25,8 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span style={{ fontFamily: "Rubik" }}>
-            <FontAwesomeIcon icon={faHome} />
+          <span className='DrawerContentGrid'>
+            <HomeRounded />
             <span className='DrawerItemText'>Home</span>
           </span>
         </DrawerItem>
@@ -41,8 +40,8 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span style={{ fontFamily: "Rubik" }}>
-            <FontAwesomeIcon icon={faSearch} />
+          <span className='DrawerContentGrid'>
+            <SearchRounded />
             <span className='DrawerItemText'>Search</span>
           </span>
         </DrawerItem>
@@ -57,8 +56,8 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span style={{ fontFamily: "Rubik" }}>
-            <FontAwesomeIcon icon={faCompactDisc} />
+          <span className='DrawerContentGrid'>
+            <LibraryMusicRounded />
             <span className='DrawerItemText'>Playlists</span>
           </span>
         </DrawerItem>

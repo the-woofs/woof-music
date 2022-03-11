@@ -5,7 +5,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faCompactDisc } from "@fortawesome/free-solid-svg-icons";
 
 function HomePage(props) {
-  const { homeSetState, searchSetState, playlistSetState } = props;
+  const {
+    homeSetState,
+    searchSetState,
+    playlistSetState,
+    viewingPlaylistSetState,
+  } = props;
+
   return (
     <div className='HomePage'>
       <h1>Home</h1>
@@ -28,6 +34,7 @@ function HomePage(props) {
             homeSetState(false);
             searchSetState(false);
             playlistSetState(true);
+            viewingPlaylistSetState(false);
           }}
         >
           <HomeScreenCard>
