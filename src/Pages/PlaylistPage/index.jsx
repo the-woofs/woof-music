@@ -4,6 +4,8 @@ import { useState } from "react";
 import { getLocalPlaylists } from "../../Functions/localPlaylists";
 
 import TrackListItem from "../../Components/TrackListItem";
+import CircularButton from "../../Components/CircularButton";
+
 import {
   PlayArrowRounded,
   PauseRounded,
@@ -64,42 +66,274 @@ function PlaylistPage(props) {
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
         />
         <TrackListItem
           trackName='Lorem Ipsum'
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
-        />{" "}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
         <TrackListItem
           trackName='Lorem Ipsum'
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
-        />{" "}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
         <TrackListItem
           trackName='Lorem Ipsum'
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
-        />{" "}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
         <TrackListItem
           trackName='Lorem Ipsum'
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
-        />{" "}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
         <TrackListItem
           trackName='Lorem Ipsum'
           albumArt='https://i.imgur.com/2YqYQYv.jpg'
           artistName='Lorem Ipsum'
           albumName='Lorem Ipsum'
-          button={<button>Lorem Ipsum</button>}
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
+        />
+
+        <TrackListItem
+          trackName='Lorem Ipsum'
+          albumArt='https://i.imgur.com/2YqYQYv.jpg'
+          artistName='Lorem Ipsum'
+          albumName='Lorem Ipsum'
+          button={
+            <CircularButton>
+              <PlayArrowRounded />
+            </CircularButton>
+          }
         />
       </div>
     </div>
