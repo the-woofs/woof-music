@@ -23,7 +23,7 @@ function AccountScreen(props) {
 
   return (
     <>
-      <div className='AccountScreen'>
+      <div className="AccountScreen">
         <button onClick={signInWithGoogle}>Sign in with Google</button>
       </div>
     </>

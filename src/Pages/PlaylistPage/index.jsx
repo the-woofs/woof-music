@@ -1,7 +1,8 @@
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { getLocalPlaylists } from "../../Functions/localPlaylists";
+import { playFromPlaylist } from "../../Functions/playlists";
 
 import TrackListItem from "../../Components/TrackListItem";
 import CircularButton from "../../Components/CircularButton";
@@ -13,10 +14,17 @@ import {
 } from "@mui/icons-material";
 
 function PlaylistPage(props) {
-  const { playlistId, setIsViewingPlaylist, isLocal } = props;
+  const {
+    playlistId,
+    setIsViewingPlaylist,
+    trackStateFunction,
+    isLocal,
+    setOnEndFunction,
+    trackId,
+    setTrackId,
+  } = props;
 
-  let playlists;
-  let playlist;
+  let playlists, playlist;
 
   if (isLocal) {
     playlists = getLocalPlaylists();
@@ -24,125 +32,79 @@ function PlaylistPage(props) {
   }
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [tracks, setTracks] = useState([]);
 
   const onClickFunction = () => {
     setIsPlaying(!isPlaying);
+
+    if (isPlaying) {
+      console.log("is playing");
+      playFromPlaylist(
+        trackStateFunction,
+        trackId,
+        playlist,
+        setTrackId,
+        setOnEndFunction
+      );
+    }
   };
+
+  useEffect(() => {
+    setTracks(playlist.tracks);
+  }, [playlist]);
 
   return (
     <div className='PlaylistPage'>
-      <div className='PlaylistHeader'>
-        <img
-          className='Thumbnail'
-          src={playlist.thumbnail}
-          alt={playlist.name}
-        />
-        <h1>{playlist.name}</h1>
-        <p>{playlist.description}</p>
-        <div className='PlaylistButtons'>
-          <button className=' eee PlayButton' onClick={onClickFunction}>
+      {playlist && (
+        <div className='PlaylistHeader'>
+          <img
+            className='Thumbnail'
+            src={playlist.thumbnail}
+            alt={playlist.name}
+          />
+          <h1>{playlist.name}</h1>
+          <p>{playlist.description}</p>
+          <div className='PlaylistButtons'>
             {isPlaying ? (
-              <PauseRounded
-                sx={{
-                  fontSize: "2.5rem",
-                }}
-              />
+              <button className='eee PlayButton' onClick={onClickFunction}>
+                <PauseRounded
+                  sx={{
+                    fontSize: "2.5rem",
+                  }}
+                />
+              </button>
             ) : (
-              <PlayArrowRounded
-                sx={{
-                  fontSize: "2.5rem",
-                }}
-              />
+              <button className='eee PlayButton' onClick={onClickFunction}>
+                <PlayArrowRounded
+                  sx={{
+                    fontSize: "2.5rem",
+                  }}
+                />
+              </button>
             )}
-          </button>
-          <button className=' eee ShareButton'>
-            <ShareRounded />
-          </button>
+            <button className=' eee ShareButton'>
+              <ShareRounded />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
       <div className='PlaylistContent'>
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
-
-        <TrackListItem
-          trackName='Lorem Ipsum'
-          albumArt='https://i.imgur.com/2YqYQYv.jpg'
-          artistName='Lorem Ipsum'
-          albumName='Lorem Ipsum'
-          button={
-            <CircularButton>
-              <PlayArrowRounded />
-            </CircularButton>
-          }
-        />
+        {tracks &&
+          tracks.map((track, index) => (
+            <TrackListItem
+              key={index}
+              trackName={track.trackName}
+              artistName={track.artistName}
+              albumName={track.albumName}
+              url={track.url}
+              albumArt={track.albumArt}
+              button={
+                <CircularButton>
+                  <PlayArrowRounded />
+                </CircularButton>
+              }
+            />
+          ))}
       </div>
     </div>
   );

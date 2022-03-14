@@ -5,8 +5,16 @@ import Controls from "../Controls";
 import { useState, useEffect } from "react";
 
 function CurrentlyPlayingInfo(props) {
-  const { artistName, albumArt, trackName, albumName, url, playing, muted } =
-    props;
+  const {
+    artistName,
+    albumArt,
+    trackName,
+    albumName,
+    url,
+    playing,
+    muted,
+    onBufferEnd,
+  } = props;
 
   const [playedValue, setPlayedValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(playing);
@@ -49,6 +57,7 @@ function CurrentlyPlayingInfo(props) {
           id='reactplayer'
           onProgress={handleProgress}
           ref={myRef}
+          onBufferEnd={onBufferEnd}
         />
         <Controls
           playedValue={playedValue}

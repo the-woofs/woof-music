@@ -37,6 +37,7 @@
   height: 3rem;
   width: 3rem;
   background-color: var(--accentColor) !important;
+  transition: all 0.3s ease;
 }
 
 .PlaylistCard:hover .PlaylistCardThumbnailOverlay button {

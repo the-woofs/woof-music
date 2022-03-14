@@ -15,7 +15,9 @@ function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
 
   const [track, setTrack] = useState({});
+  const [onBufferEnd, setOnBufferEnd] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [trackId, setTrackId] = useState(0);
 
   // Using states to change the page so that the site doesn't have to redirect. Redirecting can cause the player to stop playing.
   const [searchPage, setSearchPage] = useState(false);
@@ -24,6 +26,8 @@ function MainScreen(props) {
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
   const [queue, setQueue] = useState([]);
+
+  const [isQueue, setIsQueue] = useState(false);
 
   useEffect(() => {
     setIsPlaying(true);
@@ -60,6 +64,10 @@ function MainScreen(props) {
             <PlaylistsPage
               isViewingPlaylist={viewingPlaylist}
               setIsViewingPlaylist={setViewingPlaylist}
+              trackStateFunction={setTrack}
+              setOnEndFunction={setOnBufferEnd}
+              trackId={trackId}
+              setTrackId={setTrackId}
             />
           )}
           {searchPage && <SearchPage trackStateFunction={setTrack} />}
@@ -72,6 +80,9 @@ function MainScreen(props) {
           albumArt={track["albumArt"]}
           url={track["url"]}
           playing={isPlaying}
+          onBufferEnd={onBufferEnd}
+          trackId={trackId}
+          setTrackId={setTrackId}
         />
       </BottomBar>
     </>

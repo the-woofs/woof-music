@@ -16,7 +16,7 @@ function Drawer(props) {
   } = props;
   console.log(homeSetState);
   return (
-    <div className='Drawer'>
+    <div className="Drawer">
       <span
         onClick={() => {
           homeSetState(true);
@@ -25,9 +25,9 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span className='DrawerContentGrid'>
+          <span className="DrawerContentGrid">
             <HomeRounded />
-            <span className='DrawerItemText'>Home</span>
+            <span className="DrawerItemText">Home</span>
           </span>
         </DrawerItem>
       </span>
@@ -40,9 +40,9 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span className='DrawerContentGrid'>
+          <span className="DrawerContentGrid">
             <SearchRounded />
-            <span className='DrawerItemText'>Search</span>
+            <span className="DrawerItemText">Search</span>
           </span>
         </DrawerItem>
       </span>
@@ -56,9 +56,9 @@ function Drawer(props) {
         }}
       >
         <DrawerItem>
-          <span className='DrawerContentGrid'>
+          <span className="DrawerContentGrid">
             <LibraryMusicRounded />
-            <span className='DrawerItemText'>Playlists</span>
+            <span className="DrawerItemText">Playlists</span>
           </span>
         </DrawerItem>
       </span>

@@ -46,7 +46,7 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path='/*'
+            path="/*"
             element={
               <MainScreen
                 isLoggedIn={user}
@@ -56,7 +56,7 @@ function App() {
             }
           />
           <Route
-            path='/account'
+            path="/account"
             element={<AccountScreen firebaseConfig={firebaseConfig} />}
           />
         </Routes>

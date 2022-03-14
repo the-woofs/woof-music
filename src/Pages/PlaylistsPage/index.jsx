@@ -9,7 +9,14 @@ import { getLocalPlaylists } from "../../Functions/localPlaylists";
 console.log(localStorage);
 
 function PlayslitsPage(props) {
-  const { isViewingPlaylist, setIsViewingPlaylist } = props;
+  const {
+    isViewingPlaylist,
+    setIsViewingPlaylist,
+    trackStateFunction,
+    setOnEndFunction,
+    trackId,
+    setTrackId,
+  } = props;
   const localPlaylists = getLocalPlaylists();
 
   const [playlistId, setPlaylistId] = useState(null);
@@ -43,6 +50,10 @@ function PlayslitsPage(props) {
           playlistId={playlistId}
           setIsViewingPlaylist={setIsViewingPlaylist}
           isLocal={isLocal}
+          trackStateFunction={trackStateFunction}
+          setOnEndFunction={setOnEndFunction}
+          trackId={trackId}
+          setTrackId={setTrackId}
         />
       )}
     </>

@@ -1,17 +1,17 @@
 .SearchPage {
-	margin: 2rem
+  margin: 2rem;
 }
 
 .SearchPage input {
-	margin: 0 auto;
-	width: 50%;
+  margin: 0 auto;
+  width: 50%;
 }
 
 .SearchItems {
-	padding: 2rem;
-	overflow: auto;
-	overflow-x: hidden;
-	height: 60vh
+  padding: 2rem;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 60vh;
 }
 
 ::-webkit-scrollbar {

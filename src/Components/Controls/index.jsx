@@ -9,8 +9,8 @@ function Controls(props) {
   const { playedValue, setPlayedValue, isPlaying, setIsPlaying } = props;
 
   return (
-    <div class='Controls'>
-      <div class='TopControls'>
+    <div class="Controls">
+      <div class="TopControls">
         <div />
         <CircularButton onClick={() => setIsPlaying(!isPlaying)}>
           {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
@@ -19,7 +19,7 @@ function Controls(props) {
       </div>
       <div>
         <Slider
-          axis='x'
+          axis="x"
           x={playedValue * 100}
           xmax={100}
           xmin={0}

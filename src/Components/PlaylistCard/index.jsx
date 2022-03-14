@@ -23,22 +23,22 @@ function PlaylistCard(props) {
   };
 
   return (
-    <div className='PlaylistCard' onClick={onClick}>
+    <div className="PlaylistCard" onClick={onClick}>
       <div
-        className='PlaylistCardThumbnailDiv'
+        className="PlaylistCardThumbnailDiv"
         style={{
           backgroundImage: `url(${thumbnail})`,
         }}
       >
-        <div className='PlaylistCardThumbnailOverlay'>
-          <CircularButton className='PlaylistPlayButton'>
+        <div className="PlaylistCardThumbnailOverlay">
+          <CircularButton className="PlaylistPlayButton">
             <PlayArrowRounded />
           </CircularButton>
         </div>
       </div>
-      <div className='PlaylistCardInfo'>
-        <h3 className='PlaylistCardName'>{name}</h3>
-        <div className='PlaylistDescription'>
+      <div className="PlaylistCardInfo">
+        <h3 className="PlaylistCardName">{name}</h3>
+        <div className="PlaylistDescription">
           <p>{description}</p>
         </div>
       </div>

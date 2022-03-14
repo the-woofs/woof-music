@@ -40,9 +40,9 @@ function LeftPanel(props) {
   };
 
   return (
-    <div class='PanelDiv'>
-      <div class='LeftPanel'>
-        <div class='AccountCenterDiv'>
+    <div class="PanelDiv">
+      <div class="LeftPanel">
+        <div class="AccountCenterDiv">
           {/* !isLoggedIn && !isLoading && (
             <GradientButton className='SignInButton' onClick={signInWithGoogle}>
               Sign In
@@ -62,7 +62,7 @@ function LeftPanel(props) {
             </>
           ) */}
         </div>
-        <div className='LeftPanelDrawer'>
+        <div className="LeftPanelDrawer">
           <Drawer
             homeSetState={homeSetState}
             searchSetState={searchSetState}
@@ -73,9 +73,9 @@ function LeftPanel(props) {
             viewingPlaylistSetState={viewingPlaylistSetState}
           />
           <hr />
-          <div class='AccountCenterDiv'>
+          <div class="AccountCenterDiv">
             {isLoggedIn && !isLoading && (
-              <button className='SignOutButton' onClick={() => auth.signOut()}>
+              <button className="SignOutButton" onClick={() => auth.signOut()}>
                 Sign Out
               </button>
             )}

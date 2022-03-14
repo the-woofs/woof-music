@@ -1,13 +1,9 @@
-import './index.css'
+import "./index.css";
 
 function ExplicitArea(props) {
-	const { children } = props;
+  const { children } = props;
 
-	return (
-		<div className="ExplicitArea">
-			{children}
-		</div>
-	);
+  return <div className="ExplicitArea">{children}</div>;
 }
 
 export default ExplicitArea;
