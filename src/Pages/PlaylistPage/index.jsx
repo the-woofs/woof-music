@@ -106,6 +106,11 @@ function PlaylistPage(props) {
             />
           ))}
       </div>
+      <br />
+      <br />
+      <div className="center">
+        <button>Add Tracks</button>
+        </div>
     </div>
   );
 }
