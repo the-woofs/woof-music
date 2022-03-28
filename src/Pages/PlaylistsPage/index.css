@@ -2,7 +2,7 @@
   padding: 1rem 2rem;
 }
 
-.PlaylistsPage h1 {
+h1 {
   font-size: 2rem;
 }
 
@@ -12,10 +12,17 @@
   grid-gap: 1rem;
 }
 
-.CreateButton {
-  box-shadow: 3px 3px 5px var(--black);
+.PlaylistCreationOverlay {
+  height: 100%;
+  width: 100%;
+  padding: 1rem 2rem;
 }
 
-.CreateButton:active {
-  box-shadow: 1px 1px 5px var(--black);
+.Grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+input {
+  width: 50%;
 }

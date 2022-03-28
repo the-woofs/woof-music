@@ -23,7 +23,11 @@ function getLocalPlaylists() {
 }
 
 function addLocalPlaylist(playlistObject) {
-  const playlists = getLocalPlaylists();
+  let playlists = getLocalPlaylists();
+
+  if (!playlists) {
+    playlists = [];
+  }
 
   playlistObject.id = playlists.length;
   playlists.push(playlistObject);

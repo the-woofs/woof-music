@@ -23,6 +23,10 @@
   flex-direction: row;
   justify-content: end;
   padding: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  background-position-x: center;
 }
 
 .PlaylistCardThumbnailOverlay {

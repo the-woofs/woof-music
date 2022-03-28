@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import PlaylistPage from "../PlaylistPage";
 import PlaylistCard from "../../Components/PlaylistCard";
-import { getLocalPlaylists } from "../../Functions/localPlaylists";
+import { getLocalPlaylists, addLocalPlaylist } from "../../Functions/localPlaylists";
 
 console.log(localStorage);
 
@@ -20,10 +20,73 @@ function PlayslitsPage(props) {
   const localPlaylists = getLocalPlaylists();
 
   const [playlistId, setPlaylistId] = useState(null);
+  const [isCreatingPlaylist, setIsCreatingPlaylist] = useState(false);
   const [isLocal, setIsLocal] = useState(true);
+
+  const [thumbnail, setThumbnail] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  const createPlaylist = () => {
+    addLocalPlaylist(
+      {
+        thumbnail: thumbnail,
+        name: title,
+        description: description,
+        id: 0
+      }
+    )
+  }
 
   return (
     <>
+      {
+        isCreatingPlaylist && (
+          <div className='PlaylistCreationOverlay'>
+            <h1>Create Playlist</h1>
+            <div className='Grid2'>
+            <div>
+              <img src={thumbnail} alt='thumbnail' />
+              <br />
+              <br />
+              <h2>Thumbnail Source:</h2> <input
+                onChange={
+                  (e) => {
+                    setThumbnail(e.target.value);
+                  }
+                }
+              />
+              </div>
+              <div>
+                <h2>Title:</h2>
+                <input
+                  onChange={
+                  (e) => {
+                    setTitle(e.target.value);
+                  }
+                }
+                />
+                <br/>
+                <br/>
+                <br/>
+                <h2>Description:</h2>
+                <input
+                  onChange={
+                  (e) => {
+                    setDescription(e.target.value);
+                  }
+                }
+                />
+                <br />
+                <br />
+                <br />
+                <br />
+                <button onClick={createPlaylist}>Create</button>
+              </div>
+            </div>
+          </div>
+        )
+      }
       {!isViewingPlaylist && (
         <div className='PlaylistsPage'>
           <h1>Playlists</h1>
@@ -48,10 +111,11 @@ function PlayslitsPage(props) {
               ))}
           </div>
           <hr />
-          {
-            // Make a div that has text fields for new playlist info
-          }
-            <button className="CreateButton">
+          <button className="CreateButton" onClick={
+            () => {
+              setIsCreatingPlaylist(true);
+            }
+            }>
               Create
             </button>
         </div>

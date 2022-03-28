@@ -21,6 +21,8 @@
 .PlaylistHeader img {
   grid-area: i;
   height: 40vh;
+  width: 40vh;
+  object-fit: cover;
 }
 
 .PlaylistHeader h1 {
