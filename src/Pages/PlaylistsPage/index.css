@@ -11,3 +11,11 @@
   grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
   grid-gap: 1rem;
 }
+
+.CreateButton {
+  box-shadow: 3px 3px 5px var(--black);
+}
+
+.CreateButton:active {
+  box-shadow: 1px 1px 5px var(--black);
+}

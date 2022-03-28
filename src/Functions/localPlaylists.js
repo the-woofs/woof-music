@@ -17,11 +17,7 @@ PLAYLIST STRUCTURE
 const playlistsKey = "Playlists";
 
 function getLocalPlaylists() {
-  const playlists = JSON.parse(localStorage.getItem(playlistsKey));
-
-  if (playlists == null) {
-    playlists = [];
-  }
+  let playlists = JSON.parse(localStorage.getItem(playlistsKey));
 
   return playlists;
 }

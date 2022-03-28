@@ -27,6 +27,10 @@ function PlayslitsPage(props) {
       {!isViewingPlaylist && (
         <div className='PlaylistsPage'>
           <h1>Playlists</h1>
+          {!localPlaylists &&
+              <p>You have no playlists. Create one and it will be listed here.</p>
+
+            }
           <div className='PlaylistsGrid'>
             {localPlaylists &&
               localPlaylists.map((playlist) => (
@@ -43,6 +47,13 @@ function PlayslitsPage(props) {
                 />
               ))}
           </div>
+          <hr />
+          {
+            // Make a div that has text fields for new playlist info
+          }
+            <button className="CreateButton">
+              Create
+            </button>
         </div>
       )}
       {isViewingPlaylist && (
