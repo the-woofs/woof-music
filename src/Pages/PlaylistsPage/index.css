@@ -1,3 +1,8 @@
+.ExplicitArea {
+  overflow: scroll;
+  height: 82vh;
+}
+
 .PlaylistsPage {
   padding: 1rem 2rem;
 }
@@ -25,4 +30,28 @@ h1 {
 
 input {
   width: 50%;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blackSecondary);
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--black);
 }
