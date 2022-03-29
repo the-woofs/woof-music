@@ -11,6 +11,7 @@ function Controls(props) {
   return (
     <div class="Controls">
       <div class="TopControls">
+        <div />
         <CircularButton className="skipButton" onClick={() => {
           playerRef.current.prevTrackFunction();
           playerRef.current.seekTo(0, "fraction");

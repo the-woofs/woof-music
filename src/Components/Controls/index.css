@@ -2,11 +2,12 @@
   display: grid;
   grid-template-rows: 2fr 1fr;
   height: 100%;
+  text-align: center;
 }
 
 .TopControls {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 50px 50px 50px 1fr;
   grid-gap: 10px;
   width: 100%;
   place-items: center;

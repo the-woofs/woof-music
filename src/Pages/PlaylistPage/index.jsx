@@ -71,7 +71,7 @@ function PlaylistPage(props) {
           <p>{playlist.description}</p>
           <div className='PlaylistButtons'>
             {isPlaying ? (
-              <button className='eee PlayButton' onClick={onClickFunction}>
+              <button className='IconButton PlayButton' onClick={onClickFunction}>
                 <PauseRounded
                   sx={{
                     fontSize: "2.5rem",
@@ -79,7 +79,7 @@ function PlaylistPage(props) {
                 />
               </button>
             ) : (
-              <button className='eee PlayButton' onClick={onClickFunction}>
+              <button className='IconButton PlayButton' onClick={onClickFunction}>
                 <PlayArrowRounded
                   sx={{
                     fontSize: "2.5rem",
@@ -87,7 +87,7 @@ function PlaylistPage(props) {
                 />
               </button>
             )}
-            <button className=' eee ShareButton'>
+            <button className='IconButton ShareButton'>
               <ShareRounded />
             </button>
           </div>

@@ -108,7 +108,7 @@
   background: var(--black);
 }
 
-.eee {
+.IconButton {
   display: inline-flex;
   -webkit-box-align: center;
   align-items: center;
