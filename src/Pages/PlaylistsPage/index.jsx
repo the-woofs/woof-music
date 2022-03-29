@@ -47,7 +47,7 @@ function PlayslitsPage(props) {
             <h1>Create Playlist</h1>
             <div className='Grid2'>
             <div>
-              <img src={thumbnail} alt='thumbnail' />
+              <img src={thumbnail} alt='thumbnail' className="thumbnail" />
               <br />
               <br />
               <h2>Thumbnail Source:</h2> <input

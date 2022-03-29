@@ -1,5 +1,6 @@
 .ExplicitArea {
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
   height: 82vh;
 }
 
@@ -26,6 +27,13 @@ h1 {
 .Grid2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.thumbnail {
+  width: 40vh;
+  height: 40vh;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px var(--black);
 }
 
 input {

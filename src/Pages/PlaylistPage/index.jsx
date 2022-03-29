@@ -41,7 +41,7 @@ function PlaylistPage(props) {
   const onClickFunction = () => {
     setIsPlaying(!isPlaying);
 
-    if (isPlaying) {
+    if (!isPlaying) {
       console.log("is playing");
       playFromPlaylist(
         playerRef,
@@ -105,7 +105,18 @@ function PlaylistPage(props) {
               albumArt={track.albumArt}
               button={
                 <CircularButton>
-                  <PlayArrowRounded />
+                  <PlayArrowRounded onClick={
+                    () => { 
+                      setTrackId(index);
+                      playFromPlaylist(
+                        playerRef,
+                        trackStateFunction,
+                        index,
+                        playlist,
+                        setTrackId,
+                      );
+                    }
+                  } />
                 </CircularButton>
               }
             />

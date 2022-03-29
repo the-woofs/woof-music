@@ -29,3 +29,7 @@ h6 {
 * {
   outline: none;
 }
+
+img {
+  object-fit: cover;
+}

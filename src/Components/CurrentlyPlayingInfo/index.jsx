@@ -69,6 +69,7 @@ function CurrentlyPlayingInfo(props) {
           setPlayedValue={setNewPlayedValue}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
+          playerRef={playerRef}
         />
       </div>
     </div>

@@ -3,17 +3,28 @@ import "./index.css";
 import Slider from "react-input-slider";
 
 import CircularButton from "../CircularButton";
-import { PlayArrowRounded, PauseRounded } from "@mui/icons-material";
+import { PlayArrowRounded, PauseRounded, SkipNextRounded, SkipPreviousRounded } from "@mui/icons-material";
 
 function Controls(props) {
-  const { playedValue, setPlayedValue, isPlaying, setIsPlaying } = props;
+  const { playedValue, setPlayedValue, isPlaying, setIsPlaying, playerRef } = props;
 
   return (
     <div class="Controls">
       <div class="TopControls">
-        <div />
+        <CircularButton className="skipButton" onClick={() => {
+          playerRef.current.prevTrackFunction();
+          playerRef.current.seekTo(0, "fraction");
+        }}>
+          <SkipPreviousRounded />
+        </CircularButton>
         <CircularButton onClick={() => setIsPlaying(!isPlaying)}>
           {isPlaying ? <PauseRounded /> : <PlayArrowRounded />}
+        </CircularButton>
+        <CircularButton className="skipButton" onClick={() => {
+          playerRef.current.onEndFunction();
+          playerRef.current.seekTo(0, "fraction");
+        }}>
+          <SkipNextRounded />
         </CircularButton>
         <div />
       </div>
