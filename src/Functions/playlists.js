@@ -1,27 +1,19 @@
-function playFromPlaylist(
-  setTrack,
-  trackId,
-  playlist,
-  setTrackId,
-  setOnEndFunction
-) {
+function playFromPlaylist(ref, setTrack, trackId, playlist, setTrackId) {
   const onEndFunction = () => {
     if (trackId + 1 < playlist.tracks.length) {
-      playFromPlaylist(
-        setTrack,
-        trackId + 1,
-        playlist,
-        setTrackId,
-        setOnEndFunction
-      );
+      playFromPlaylist(ref, setTrack, trackId + 1, playlist, setTrackId);
     } else {
       setTrackId(0);
-      setOnEndFunction(null);
+      setOnEndFunction(ref, null);
     }
   };
-  setOnEndFunction(onEndFunction);
+  setOnEndFunction(ref, onEndFunction);
   setTrack(playlist.tracks[trackId]);
   setTrackId(trackId);
+}
+
+function setOnEndFunction(ref, onEndFunction) {
+  ref.current.onEndFunction = onEndFunction;
 }
 
 export { playFromPlaylist };

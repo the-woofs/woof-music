@@ -6,6 +6,7 @@ import { playFromPlaylist } from "../../Functions/playlists";
 
 import TrackListItem from "../../Components/TrackListItem";
 import CircularButton from "../../Components/CircularButton";
+import SearchPagePlaylist from "../SearchPagePlaylist";
 
 import {
   PlayArrowRounded,
@@ -20,6 +21,7 @@ function PlaylistPage(props) {
     trackStateFunction,
     isLocal,
     setOnEndFunction,
+    playerRef,
     trackId,
     setTrackId,
   } = props;
@@ -33,6 +35,8 @@ function PlaylistPage(props) {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [tracks, setTracks] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [trackButtonContent , setTrackButtonContent] = useState("Add Track");
 
   const onClickFunction = () => {
     setIsPlaying(!isPlaying);
@@ -40,11 +44,11 @@ function PlaylistPage(props) {
     if (isPlaying) {
       console.log("is playing");
       playFromPlaylist(
+        playerRef,
         trackStateFunction,
         trackId,
         playlist,
         setTrackId,
-        setOnEndFunction
       );
     }
   };
@@ -55,6 +59,7 @@ function PlaylistPage(props) {
 
   return (
     <div className='PlaylistPage'>
+
       {playlist && (
         <div className='PlaylistHeader'>
           <img
@@ -106,10 +111,25 @@ function PlaylistPage(props) {
             />
           ))}
       </div>
+      {
+        isSearching && (
+          <SearchPagePlaylist playlistId={playlistId} /> 
+       ) 
+      }
       <br />
       <br />
       <div className="center">
-        <button>Add Tracks</button>
+        <button onClick={
+          () => {
+            if (!isSearching) {
+              setTrackButtonContent("Done Searching")
+            }
+            else {
+              setTrackButtonContent("Add Track")
+            }
+            setIsSearching(!isSearching);
+          }
+        }>{trackButtonContent}</button>
         </div>
     </div>
   );

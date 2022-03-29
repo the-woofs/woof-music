@@ -1,0 +1,39 @@
+.SearchPage {
+  margin: 2rem;
+}
+
+.SearchPage {
+  height: 70%;
+}
+
+.SearchPage input {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.SearchItems {
+  padding: 2rem;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 60vh;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #00000000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blackSecondary);
+  border-radius: 0.5rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--black);
+}

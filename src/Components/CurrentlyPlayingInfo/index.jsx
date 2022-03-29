@@ -13,7 +13,7 @@ function CurrentlyPlayingInfo(props) {
     url,
     playing,
     muted,
-    onBufferEnd,
+    playerRef,
   } = props;
 
   const [playedValue, setPlayedValue] = useState(0);
@@ -23,7 +23,7 @@ function CurrentlyPlayingInfo(props) {
   const handleProgress = (played) => {
     setPlayedValue(played.played);
   };
-  const myRef = React.createRef();
+  const myRef = playerRef;
 
   useEffect(() => {
     try {
@@ -57,7 +57,12 @@ function CurrentlyPlayingInfo(props) {
           id='reactplayer'
           onProgress={handleProgress}
           ref={myRef}
-          onBufferEnd={onBufferEnd}
+          onEnded={
+            () => {
+              console.log(myRef)
+              myRef.current.onEndFunction();
+            } 
+          }
         />
         <Controls
           playedValue={playedValue}

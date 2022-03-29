@@ -16,6 +16,7 @@ function PlayslitsPage(props) {
     setOnEndFunction,
     trackId,
     setTrackId,
+    playerRef
   } = props;
   const localPlaylists = getLocalPlaylists();
 
@@ -110,13 +111,15 @@ function PlayslitsPage(props) {
                 />
               ))}
           </div>
+          <br />
+          <br />
           <hr />
           <button className="CreateButton" onClick={
             () => {
               setIsCreatingPlaylist(true);
             }
             }>
-              Create
+              Create Playlist
             </button>
         </div>
       )}
@@ -129,6 +132,7 @@ function PlayslitsPage(props) {
           setOnEndFunction={setOnEndFunction}
           trackId={trackId}
           setTrackId={setTrackId}
+          playerRef={playerRef}
         />
       )}
     </>

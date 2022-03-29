@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import LeftPanel from "../../Components/LeftPanel";
 import BottomBar from "../../Components/BottomBar";
@@ -29,6 +29,8 @@ function MainScreen(props) {
 
   const [isQueue, setIsQueue] = useState(false);
 
+  const playerRef=useRef();
+
   useEffect(() => {
     setIsPlaying(true);
   }, []);
@@ -45,7 +47,6 @@ function MainScreen(props) {
         playlistSetState={setPlaylistPage}
         queueSetState={setQueuePage}
         viewingPlaylistSetState={setViewingPlaylist}
-        // gotta pass this to the panel, then pass it to the drawer, then to the button aaaaaa
         isLoggedIn={isLoggedIn}
         isLoading={isLoading}
         firebaseConfig={firebaseConfig}
@@ -58,6 +59,7 @@ function MainScreen(props) {
               playlistSetState={setPlaylistPage}
               viewingPlaylistSetState={setViewingPlaylist}
               queueSetState={setQueuePage}
+          playerRef={playerRef}
             />
           )}
           {playlistPage && (
@@ -68,6 +70,7 @@ function MainScreen(props) {
               setOnEndFunction={setOnBufferEnd}
               trackId={trackId}
               setTrackId={setTrackId}
+          playerRef={playerRef}
             />
           )}
           {searchPage && <SearchPage trackStateFunction={setTrack} />}
@@ -83,6 +86,7 @@ function MainScreen(props) {
           onBufferEnd={onBufferEnd}
           trackId={trackId}
           setTrackId={setTrackId}
+          playerRef={playerRef}
         />
       </BottomBar>
     </>
