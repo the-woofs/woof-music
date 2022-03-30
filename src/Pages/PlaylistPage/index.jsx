@@ -17,10 +17,8 @@ import {
 function PlaylistPage(props) {
   const {
     playlistId,
-    setIsViewingPlaylist,
     trackStateFunction,
     isLocal,
-    setOnEndFunction,
     playerRef,
     trackId,
     setTrackId,

@@ -44,8 +44,9 @@ function SearchPage(props) {
       <div className="SearchItems">
         {searchResults &&
           searchResults.results &&
-          searchResults.results.map((item) => {
+          searchResults.results.map((item, index) => {
             return (
+              <div id={index} >
               <TrackListItem
                 trackName={item.trackName}
                 artistName={item.artistName}
@@ -58,9 +59,11 @@ function SearchPage(props) {
                     albumName={item.collectionName}
                     albumArt={item.artworkUrl100}
                     playlistId={playlistId}
+                    index={`${index}`}
                   />
                 }
-              />
+                />
+                </div>
             );
           })}
       </div>

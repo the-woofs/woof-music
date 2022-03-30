@@ -59,7 +59,7 @@ function MainScreen(props) {
               playlistSetState={setPlaylistPage}
               viewingPlaylistSetState={setViewingPlaylist}
               queueSetState={setQueuePage}
-          playerRef={playerRef}
+              playerRef={playerRef}
             />
           )}
           {playlistPage && (
@@ -70,7 +70,7 @@ function MainScreen(props) {
               setOnEndFunction={setOnBufferEnd}
               trackId={trackId}
               setTrackId={setTrackId}
-          playerRef={playerRef}
+              playerRef={playerRef}
             />
           )}
           {searchPage && <SearchPage trackStateFunction={setTrack} />}

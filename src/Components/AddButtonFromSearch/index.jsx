@@ -8,7 +8,7 @@ import { searchYouTube } from "../../REST/YouTube";
 import { addTrackToLocalPlaylist } from "../../Functions/localPlaylists";
 
 function PlayButtonFromSearch(props) {
-  const { playlistId, albumName, trackName, artistName, albumArt } =
+  const { playlistId, albumName, trackName, artistName, albumArt, index } =
     props;
 
   const onClickFunction = async () => {
@@ -24,6 +24,8 @@ function PlayButtonFromSearch(props) {
     },
     playlistId
     );
+    const trackItem = document.getElementById(`${index}`)
+    trackItem.style.display = "none";
   };
 
   return (
