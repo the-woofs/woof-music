@@ -33,11 +33,6 @@ function SearchPage(props) {
     setSearchTerm(e.target.value);
   };
 
-  const addToQueue = (track) => {
-    setQueue([...queue, track]);
-    setIsUsingQueue(true);
-  };
-
   return (
     <div className="SearchPage">
       <SearchBar onChangeText={onChangeFunction} />
@@ -58,6 +53,8 @@ function SearchPage(props) {
                     albumName={item.collectionName}
                     albumArt={item.artworkUrl100}
                     trackStateFunction={trackStateFunction}
+                    queue={queue}
+                    setQueue={setQueue}
                   />
                 }
               />

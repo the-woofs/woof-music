@@ -1,34 +1,21 @@
-function playFromPlaylist(ref, setTrack, trackId, playlist, setTrackId) {
-  const onEndFunction = () => {
-    if (trackId + 1 < playlist.tracks.length) {
-      playFromPlaylist(ref, setTrack, trackId + 1, playlist, setTrackId);
-    } else {
-      setTrackId(0);
-      setOnEndFunction(ref, null);
-    }
-  };
+import { playFromQueue, getQueue, saveQueue } from "./queue";
 
-  const prevTrackFunction = () => {
-    if (trackId - 1 >= 0) {
-      playFromPlaylist(ref, setTrack, trackId - 1, playlist, setTrackId);
-    } else {
-      setTrackId(0);
-      setOnEndFunction(ref, null);
-    }
-  };
-
-  setOnEndFunction(ref, onEndFunction);
-  setMovePrevFunction(ref, prevTrackFunction);
-  setTrack(playlist.tracks[trackId]);
-  setTrackId(trackId);
-}
-
-function setOnEndFunction(ref, onEndFunction) {
-  ref.current.onEndFunction = onEndFunction;
-}
-
-function setMovePrevFunction(ref, prevTrackFunction) {
-  ref.current.prevTrackFunction = prevTrackFunction;
+function playFromPlaylist(
+  ref,
+  setTrack,
+  trackId,
+  playlist,
+  setTrackId,
+  queue,
+  setQueue
+) {
+  setTrack(null);
+  saveQueue(playlist.tracks);
+  setQueue(playlist.tracks);
+  if (queue === null) {
+    queue = getQueue();
+  }
+  playFromQueue(ref, setTrack, trackId, queue, setTrackId);
 }
 
 export { playFromPlaylist };

@@ -11,6 +11,8 @@ import QueuePage from "../../Pages/QueuePage";
 
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
+import { saveQueue } from "../../Functions/queue"
+
 function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
 
@@ -25,9 +27,7 @@ function MainScreen(props) {
   const [viewingPlaylist, setViewingPlaylist] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
-  const [queue, setQueue] = useState([]);
-
-  const [isQueue, setIsQueue] = useState(false);
+  const [queue, setQueue] = useState(null);
 
   const playerRef=useRef();
 
@@ -38,6 +38,11 @@ function MainScreen(props) {
   useEffect(() => {
     console.log(track);
   }, [track]);
+
+  useEffect(() => {
+    console.log("Writing to localstorage")
+    saveQueue(queue)
+  }, [queue])
 
   return (
     <>
@@ -71,9 +76,13 @@ function MainScreen(props) {
               trackId={trackId}
               setTrackId={setTrackId}
               playerRef={playerRef}
+              queue={queue}
+              setQueue={setQueue}
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
             />
           )}
-          {searchPage && <SearchPage trackStateFunction={setTrack} />}
+          {searchPage && <SearchPage trackStateFunction={setTrack} queue={queue} setQueue={setQueue} />}
         </>
       </LeftPanel>
       <BottomBar>

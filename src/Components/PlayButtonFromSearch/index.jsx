@@ -5,9 +5,10 @@ import CircularButton from "../CircularButton";
 import { PlayArrowRounded } from "@mui/icons-material";
 
 import { searchYouTube } from "../../REST/YouTube";
+import AddButtonFromSearch from "../AddButtonFromSearchQueue";
 
 function PlayButtonFromSearch(props) {
-  const { albumName, trackName, artistName, trackStateFunction, albumArt } =
+  const { albumName, trackName, artistName, trackStateFunction, albumArt, queue, setQueue } =
     props;
 
   const onClickFunction = async () => {
@@ -24,9 +25,20 @@ function PlayButtonFromSearch(props) {
   };
 
   return (
-    <CircularButton onClick={onClickFunction}>
+    <>
+      <AddButtonFromSearch
+        queue={queue}
+        setQueue={setQueue}
+        albumName={albumName}
+        trackName={trackName}
+        artistName={artistName}
+        albumArt={albumArt}
+      />
+      <CircularButton onClick={onClickFunction}>
       <PlayArrowRounded />
-    </CircularButton>
+      </CircularButton>
+
+      </>
   );
 }
 

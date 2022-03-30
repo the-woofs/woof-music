@@ -22,6 +22,8 @@ function PlaylistPage(props) {
     playerRef,
     trackId,
     setTrackId,
+    queue,
+    setQueue,
   } = props;
 
   let playlists, playlist;
@@ -37,17 +39,25 @@ function PlaylistPage(props) {
   const [trackButtonContent , setTrackButtonContent] = useState("Add Track");
 
   const onClickFunction = () => {
-    setIsPlaying(!isPlaying);
-
-    if (!isPlaying) {
+    console.log(playlist)
+    console.log(`Is Playing? ${isPlaying}`)
+    if (isPlaying === false) {
       console.log("is playing");
       playFromPlaylist(
         playerRef,
         trackStateFunction,
-        trackId,
+        0,
         playlist,
         setTrackId,
+        queue, 
+        setQueue
       );
+      console.log(`Is Playing? ${isPlaying}`)
+      setIsPlaying(true);
+      console.log(`Is Playing? ${isPlaying}`)
+    }
+    else {
+      setIsPlaying(false)
     }
   };
 
@@ -112,6 +122,8 @@ function PlaylistPage(props) {
                         index,
                         playlist,
                         setTrackId,
+                        queue,
+                        setQueue
                       );
                     }
                   } />

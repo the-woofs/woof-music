@@ -14,7 +14,7 @@ function HomePage(props) {
 
   return (
     <div className="HomePage">
-      <h1>Home</h1>
+      <h1>Woof Muzic</h1>
       <div className="HomeCards">
         <span
           onClick={() => {

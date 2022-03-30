@@ -16,7 +16,11 @@ function PlayslitsPage(props) {
     setOnEndFunction,
     trackId,
     setTrackId,
-    playerRef
+    playerRef,
+    queue,
+    setQueue,
+    isPlaying,
+    setIsPlaying,
   } = props;
   const localPlaylists = getLocalPlaylists();
 
@@ -133,6 +137,10 @@ function PlayslitsPage(props) {
           trackId={trackId}
           setTrackId={setTrackId}
           playerRef={playerRef}
+              queue={queue}
+              setQueue={setQueue}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
         />
       )}
     </>
