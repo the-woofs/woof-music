@@ -1,17 +1,22 @@
 function playFromQueue(ref, setTrack, trackId, queue, setTrackId) {
+  queue = getQueue();
   const onEndFunction = () => {
     console.log(queue);
     queue = getQueue();
-    playFromQueue(ref, setTrack, trackId + 1, queue, setTrackId);
+    if (trackId + 1 < queue.length) {
+      playFromQueue(ref, setTrack, trackId + 1, queue, setTrackId);
+    } else {
+      playFromQueue(ref, setTrack, 0, queue, setTrackId);
+    }
   };
 
   const prevTrackFunction = () => {
+    queue = getQueue();
     if (trackId - 1 >= 0) {
-      queue = getQueue();
       playFromQueue(ref, setTrack, trackId - 1, queue, setTrackId);
     } else {
-      setTrackId(0);
-      setOnEndFunction(ref, null);
+      setTrackId(queue.length - 1);
+      playFromQueue(ref, setTrack, queue.length - 1, queue, setTrackId);
     }
   };
 
@@ -22,7 +27,8 @@ function playFromQueue(ref, setTrack, trackId, queue, setTrackId) {
 }
 
 function addToQueue(queue, setQueue, track) {
-  console.log(track);
+  queue = getQueue();
+  console.log(queue);
   if (typeof queue !== "object") {
     setQueue([track]);
   } else {
