@@ -11,38 +11,52 @@ import QueuePage from "../../Pages/QueuePage";
 
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
-import { saveQueue } from "../../Functions/queue"
+import { saveQueue, getQueue, playFromQueue } from "../../Functions/queue"
 
 function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
 
+  const getTrackId = () => {
+    const trackId = localStorage.getItem("trackId");
+    if (!trackId) {
+      localStorage.setItem("trackId", "0");
+    }
+  }
+
+  getTrackId();
+
   const [track, setTrack] = useState({});
   const [onBufferEnd, setOnBufferEnd] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [trackId, setTrackId] = useState(0);
+  const [trackId, setTrackId] = useState(
+    parseInt(localStorage.getItem("trackId"))
+  );
 
-  // Using states to change the page so that the site doesn't have to redirect. Redirecting can cause the player to stop playing.
   const [searchPage, setSearchPage] = useState(false);
   const [playlistPage, setPlaylistPage] = useState(false);
   const [viewingPlaylist, setViewingPlaylist] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
-  const [queue, setQueue] = useState(null);
+  const [queue, setQueue] = useState(localStorage.getItem("queue"));
 
   const playerRef=useRef();
 
   useEffect(() => {
-    setIsPlaying(true);
+    try {
+      playFromQueue(playerRef, setTrack, trackId, getQueue(), setTrackId);
+    }
+    catch (error) {
+      console.log(error);
+    }
   }, []);
 
   useEffect(() => {
-    console.log(track);
-  }, [track]);
+    if (queue) saveQueue(queue)
+  }, [queue])
 
   useEffect(() => {
-    console.log("Writing to localstorage")
-    saveQueue(queue)
-  }, [queue])
+    localStorage.setItem("trackId", trackId);
+  }, [trackId]);
 
   return (
     <>

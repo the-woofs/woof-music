@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 function playFromQueue(ref, setTrack, trackId, queue, setTrackId) {
   const onEndFunction = () => {
     console.log(queue);
