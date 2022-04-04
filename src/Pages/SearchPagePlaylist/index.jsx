@@ -33,10 +33,10 @@ function SearchPage(props) {
     setSearchTerm(e.target.value);
   };
 
-  const addToQueue = (track) => {
-    setQueue([...queue, track]);
-    setIsUsingQueue(true);
-  };
+  // const addToQueue = (track) => {
+  //   setQueue([...queue, track]);
+  //   setIsUsingQueue(true);
+  // };
 
   return (
     <div className="SearchPage">

@@ -1,5 +1,4 @@
 import "./index.css";
-import { useState } from "react";
 
 import CircularButton from "../../Components/CircularButton";
 import { PlayArrowRounded } from "@mui/icons-material";
