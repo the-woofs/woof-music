@@ -18,4 +18,15 @@ function playFromPlaylist(
   playFromQueue(ref, setTrack, trackId, queue, setTrackId);
 }
 
-export { playFromPlaylist };
+function addPlaylistToQueue(playlist, setQueue) {
+  const queue = getQueue();
+  if (typeof queue !== "object") {
+    saveQueue(playlist.tracks);
+    setQueue(playlist.tracks);
+  } else {
+    saveQueue([...queue, ...playlist.tracks]);
+    setQueue([...queue, ...playlist.tracks]);
+  }
+}
+
+export { playFromPlaylist, addPlaylistToQueue };

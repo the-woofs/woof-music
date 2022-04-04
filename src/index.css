@@ -3,7 +3,7 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", monospace;
   margin: 0;
   min-height: 100vh;
   overflow: hidden;

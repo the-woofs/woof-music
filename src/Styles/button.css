@@ -7,7 +7,7 @@ button {
   border-radius: var(--border-radius);
   padding: 0.5rem 0.9rem;
   transition: all 0.2s linear;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", monospace;
 }
 
 button:hover {

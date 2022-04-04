@@ -2,7 +2,7 @@ import "./index.css";
 import { useEffect, useState } from "react";
 
 import { getLocalPlaylists } from "../../Functions/localPlaylists";
-import { playFromPlaylist } from "../../Functions/playlists";
+import { playFromPlaylist, addPlaylistToQueue } from "../../Functions/playlists";
 
 import TrackListItem from "../../Components/TrackListItem";
 import CircularButton from "../../Components/CircularButton";
@@ -12,6 +12,7 @@ import {
   PlayArrowRounded,
   PauseRounded,
   ShareRounded,
+  AddRounded
 } from "@mui/icons-material";
 
 function PlaylistPage(props) {
@@ -61,6 +62,14 @@ function PlaylistPage(props) {
     }
   };
 
+  const addQueueFunc = () => {
+      addPlaylistToQueue(
+        playlist,
+        setQueue
+      );
+  };
+
+  
   useEffect(() => {
     setTracks(playlist.tracks);
   }, [playlist]);
@@ -95,9 +104,11 @@ function PlaylistPage(props) {
                 />
               </button>
             )}
-            <button className='IconButton ShareButton'>
-              <ShareRounded />
-            </button>
+            <button className='IconButton ShareButton' onClick={
+              addQueueFunc
+              }>
+                 <AddRounded />
+               </button>
           </div>
         </div>
       )}
