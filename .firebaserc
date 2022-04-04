@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "woofverse-cirlce"
+  },
+  "targets": {
+    "woofverse-cirlce": {
+      "hosting": {
+        "woof-muzic": [
+          "hosting"
+        ]
+      }
+    }
   }
 }
