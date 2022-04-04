@@ -29,10 +29,12 @@ function playFromQueue(ref, setTrack, trackId, queue, setTrackId) {
 function addToQueue(queue, setQueue, track) {
   queue = getQueue();
   console.log(queue);
-  if (typeof queue !== "object") {
-    setQueue([track]);
-  } else {
+  try {
     setQueue([...queue, track]);
+    saveQueue([...queue, track]);
+  } catch {
+    setQueue([track]);
+    saveQueue([track]);
   }
   console.log(queue);
 }

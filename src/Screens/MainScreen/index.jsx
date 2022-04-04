@@ -15,16 +15,7 @@ import { saveQueue, getQueue, playFromQueue } from "../../Functions/queue";
 
 function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
-
-  const getTrackId = () => {
-    const trackId = localStorage.getItem("trackId");
-    if (!trackId) {
-      localStorage.setItem("trackId", "0");
-    }
-  };
-
-  getTrackId();
-
+  
   const [track, setTrack] = useState({});
   const [onBufferEnd, setOnBufferEnd] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -44,6 +35,10 @@ function MainScreen(props) {
 
   useEffect(() => {
     try {
+      let trackId = parseInt(localStorage.getItem("trackId"));
+      if (!trackId) {
+        trackId = 0;
+      }
       playFromQueue(playerRef, setTrack, trackId, getQueue(), setTrackId);
     } catch (error) {
       console.log(error);
