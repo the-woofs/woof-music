@@ -21,7 +21,7 @@
   border-radius: 2.5px;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 10px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 .PlaylistCardThumbnailOverlay {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .PlaylistCardThumbnailOverlay button {
