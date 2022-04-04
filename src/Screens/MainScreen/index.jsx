@@ -7,11 +7,11 @@ import BottomBar from "../../Components/BottomBar";
 import HomePage from "../../Pages/HomePage";
 import SearchPage from "../../Pages/SearchPage";
 import PlaylistsPage from "../../Pages/PlaylistsPage";
-import QueuePage from "../../Pages/QueuePage";
+// import QueuePage from "../../Pages/QueuePage";
 
 import CurrentlyPlayingInfo from "../../Components/CurrentlyPlayingInfo";
 
-import { saveQueue, getQueue, playFromQueue } from "../../Functions/queue"
+import { saveQueue, getQueue, playFromQueue } from "../../Functions/queue";
 
 function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
@@ -21,7 +21,7 @@ function MainScreen(props) {
     if (!trackId) {
       localStorage.setItem("trackId", "0");
     }
-  }
+  };
 
   getTrackId();
 
@@ -37,22 +37,23 @@ function MainScreen(props) {
   const [viewingPlaylist, setViewingPlaylist] = useState(false);
   const [homePage, setHomePage] = useState(true);
   const [queuePage, setQueuePage] = useState(false);
+  console.log(queuePage);
   const [queue, setQueue] = useState(localStorage.getItem("queue"));
 
-  const playerRef=useRef();
+  const playerRef = useRef();
 
   useEffect(() => {
     try {
       playFromQueue(playerRef, setTrack, trackId, getQueue(), setTrackId);
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (queue) saveQueue(queue)
-  }, [queue])
+    if (queue) saveQueue(queue);
+  }, [queue]);
 
   useEffect(() => {
     localStorage.setItem("trackId", trackId);
@@ -96,7 +97,13 @@ function MainScreen(props) {
               setIsPlaying={setIsPlaying}
             />
           )}
-          {searchPage && <SearchPage trackStateFunction={setTrack} queue={queue} setQueue={setQueue} />}
+          {searchPage && (
+            <SearchPage
+              trackStateFunction={setTrack}
+              queue={queue}
+              setQueue={setQueue}
+            />
+          )}
         </>
       </LeftPanel>
       <BottomBar>

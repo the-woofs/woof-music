@@ -8,12 +8,21 @@ import { searchYouTube } from "../../REST/YouTube";
 import AddButtonFromSearch from "../AddButtonFromSearchQueue";
 
 function PlayButtonFromSearch(props) {
-  const { albumName, trackName, artistName, trackStateFunction, albumArt, queue, setQueue } =
-    props;
+  const {
+    albumName,
+    trackName,
+    artistName,
+    trackStateFunction,
+    albumArt,
+    queue,
+    setQueue,
+  } = props;
 
   const onClickFunction = async () => {
     console.log("search");
-    const tracks = await searchYouTube(`${artistName} - ${trackName} from ${albumName}`);
+    const tracks = await searchYouTube(
+      `${artistName} - ${trackName} from ${albumName}`
+    );
 
     trackStateFunction({
       albumName: albumName,
@@ -35,10 +44,9 @@ function PlayButtonFromSearch(props) {
         albumArt={albumArt}
       />
       <CircularButton onClick={onClickFunction}>
-      <PlayArrowRounded />
+        <PlayArrowRounded />
       </CircularButton>
-
-      </>
+    </>
   );
 }
 

@@ -4,7 +4,10 @@ import { useState } from "react";
 
 import PlaylistPage from "../PlaylistPage";
 import PlaylistCard from "../../Components/PlaylistCard";
-import { getLocalPlaylists, addLocalPlaylist } from "../../Functions/localPlaylists";
+import {
+  getLocalPlaylists,
+  addLocalPlaylist,
+} from "../../Functions/localPlaylists";
 
 console.log(localStorage);
 
@@ -28,78 +31,68 @@ function PlayslitsPage(props) {
   const [isCreatingPlaylist, setIsCreatingPlaylist] = useState(false);
   const [isLocal, setIsLocal] = useState(true);
 
-  const [thumbnail, setThumbnail] = useState('');
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [thumbnail, setThumbnail] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const createPlaylist = () => {
-    addLocalPlaylist(
-      {
-        thumbnail: thumbnail,
-        name: title,
-        description: description,
-        id: 0
-      }
-    )
-  }
+    addLocalPlaylist({
+      thumbnail: thumbnail,
+      name: title,
+      description: description,
+      id: 0,
+    });
+  };
 
   return (
     <>
-      {
-        isCreatingPlaylist && (
-          <div className='PlaylistCreationOverlay'>
-            <h1>Create Playlist</h1>
-            <div className='Grid2'>
+      {isCreatingPlaylist && (
+        <div className="PlaylistCreationOverlay">
+          <h1>Create Playlist</h1>
+          <div className="Grid2">
             <div>
-              <img src={thumbnail} alt='thumbnail' className="thumbnail" />
+              <img src={thumbnail} alt="thumbnail" className="thumbnail" />
               <br />
               <br />
-              <h2>Thumbnail Source:</h2> <input
-                onChange={
-                  (e) => {
-                    setThumbnail(e.target.value);
-                  }
-                }
+              <h2>Thumbnail Source:</h2>{" "}
+              <input
+                onChange={(e) => {
+                  setThumbnail(e.target.value);
+                }}
               />
-              </div>
-              <div>
-                <h2>Title:</h2>
-                <input
-                  onChange={
-                  (e) => {
-                    setTitle(e.target.value);
-                  }
-                }
-                />
-                <br/>
-                <br/>
-                <br/>
-                <h2>Description:</h2>
-                <input
-                  onChange={
-                  (e) => {
-                    setDescription(e.target.value);
-                  }
-                }
-                />
-                <br />
-                <br />
-                <br />
-                <br />
-                <button onClick={createPlaylist}>Create</button>
-              </div>
+            </div>
+            <div>
+              <h2>Title:</h2>
+              <input
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+              />
+              <br />
+              <br />
+              <br />
+              <h2>Description:</h2>
+              <input
+                onChange={(e) => {
+                  setDescription(e.target.value);
+                }}
+              />
+              <br />
+              <br />
+              <br />
+              <br />
+              <button onClick={createPlaylist}>Create</button>
             </div>
           </div>
-        )
-      }
+        </div>
+      )}
       {!isViewingPlaylist && (
-        <div className='PlaylistsPage'>
+        <div className="PlaylistsPage">
           <h1>Playlists</h1>
-          {!localPlaylists &&
-              <p>You have no playlists. Create one and it will be listed here.</p>
-
-            }
-          <div className='PlaylistsGrid'>
+          {!localPlaylists && (
+            <p>You have no playlists. Create one and it will be listed here.</p>
+          )}
+          <div className="PlaylistsGrid">
             {localPlaylists &&
               localPlaylists.map((playlist) => (
                 <PlaylistCard
@@ -118,13 +111,14 @@ function PlayslitsPage(props) {
           <br />
           <br />
           <hr />
-          <button className="CreateButton" onClick={
-            () => {
+          <button
+            className="CreateButton"
+            onClick={() => {
               setIsCreatingPlaylist(true);
-            }
-            }>
-              Create Playlist
-            </button>
+            }}
+          >
+            Create Playlist
+          </button>
         </div>
       )}
       {isViewingPlaylist && (
@@ -137,8 +131,8 @@ function PlayslitsPage(props) {
           trackId={trackId}
           setTrackId={setTrackId}
           playerRef={playerRef}
-              queue={queue}
-              setQueue={setQueue}
+          queue={queue}
+          setQueue={setQueue}
           isPlaying={isPlaying}
           setIsPlaying={setIsPlaying}
         />

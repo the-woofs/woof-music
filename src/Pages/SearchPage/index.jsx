@@ -9,7 +9,7 @@ import PlayButtonFromSearch from "../../Components/PlayButtonFromSearch";
 import { musicSearch } from "../../REST/Itunes";
 
 function SearchPage(props) {
-  const { trackStateFunction, setIsUsingQueue, setQueue, queue } = props;
+  const { trackStateFunction, setQueue, queue } = props;
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState({});
 

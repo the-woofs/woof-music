@@ -2,7 +2,10 @@ import "./index.css";
 import { useEffect, useState } from "react";
 
 import { getLocalPlaylists } from "../../Functions/localPlaylists";
-import { playFromPlaylist, addPlaylistToQueue } from "../../Functions/playlists";
+import {
+  playFromPlaylist,
+  addPlaylistToQueue,
+} from "../../Functions/playlists";
 
 import TrackListItem from "../../Components/TrackListItem";
 import CircularButton from "../../Components/CircularButton";
@@ -11,7 +14,7 @@ import SearchPagePlaylist from "../SearchPagePlaylist";
 import {
   PlayArrowRounded,
   PauseRounded,
-  AddRounded
+  AddRounded,
 } from "@mui/icons-material";
 
 function PlaylistPage(props) {
@@ -20,7 +23,7 @@ function PlaylistPage(props) {
     trackStateFunction,
     isLocal,
     playerRef,
-//    trackId,
+    //    trackId,
     setTrackId,
     queue,
     setQueue,
@@ -36,11 +39,11 @@ function PlaylistPage(props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [tracks, setTracks] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [trackButtonContent , setTrackButtonContent] = useState("Add Track");
+  const [trackButtonContent, setTrackButtonContent] = useState("Add Track");
 
   const onClickFunction = () => {
-    console.log(playlist)
-    console.log(`Is Playing? ${isPlaying}`)
+    console.log(playlist);
+    console.log(`Is Playing? ${isPlaying}`);
     if (isPlaying === false) {
       console.log("is playing");
       playFromPlaylist(
@@ -49,45 +52,42 @@ function PlaylistPage(props) {
         0,
         playlist,
         setTrackId,
-        queue, 
+        queue,
         setQueue
       );
-      console.log(`Is Playing? ${isPlaying}`)
+      console.log(`Is Playing? ${isPlaying}`);
       setIsPlaying(true);
-      console.log(`Is Playing? ${isPlaying}`)
-    }
-    else {
-      setIsPlaying(false)
+      console.log(`Is Playing? ${isPlaying}`);
+    } else {
+      setIsPlaying(false);
     }
   };
 
   const addQueueFunc = () => {
-      addPlaylistToQueue(
-        playlist,
-        setQueue
-      );
+    addPlaylistToQueue(playlist, setQueue);
   };
 
-  
   useEffect(() => {
     setTracks(playlist.tracks);
   }, [playlist]);
 
   return (
-    <div className='PlaylistPage'>
-
+    <div className="PlaylistPage">
       {playlist && (
-        <div className='PlaylistHeader'>
+        <div className="PlaylistHeader">
           <img
-            className='Thumbnail'
+            className="Thumbnail"
             src={playlist.thumbnail}
             alt={playlist.name}
           />
           <h1>{playlist.name}</h1>
           <p>{playlist.description}</p>
-          <div className='PlaylistButtons'>
+          <div className="PlaylistButtons">
             {isPlaying ? (
-              <button className='IconButton PlayButton' onClick={onClickFunction}>
+              <button
+                className="IconButton PlayButton"
+                onClick={onClickFunction}
+              >
                 <PauseRounded
                   sx={{
                     fontSize: "2.5rem",
@@ -95,7 +95,10 @@ function PlaylistPage(props) {
                 />
               </button>
             ) : (
-              <button className='IconButton PlayButton' onClick={onClickFunction}>
+              <button
+                className="IconButton PlayButton"
+                onClick={onClickFunction}
+              >
                 <PlayArrowRounded
                   sx={{
                     fontSize: "2.5rem",
@@ -103,14 +106,13 @@ function PlaylistPage(props) {
                 />
               </button>
             )}
-            <button className='IconButton ShareButton' onClick=
-              {addQueueFunc}>
-                 <AddRounded />
-               </button>
+            <button className="IconButton ShareButton" onClick={addQueueFunc}>
+              <AddRounded />
+            </button>
           </div>
         </div>
       )}
-      <div className='PlaylistContent'>
+      <div className="PlaylistContent">
         {tracks &&
           tracks.map((track, index) => (
             <TrackListItem
@@ -122,8 +124,8 @@ function PlaylistPage(props) {
               albumArt={track.albumArt}
               button={
                 <CircularButton>
-                  <PlayArrowRounded onClick={
-                    () => { 
+                  <PlayArrowRounded
+                    onClick={() => {
                       setTrackId(index);
                       playFromPlaylist(
                         playerRef,
@@ -134,33 +136,30 @@ function PlaylistPage(props) {
                         queue,
                         setQueue
                       );
-                    }
-                  } />
+                    }}
+                  />
                 </CircularButton>
               }
             />
           ))}
       </div>
-      {
-        isSearching && (
-          <SearchPagePlaylist playlistId={playlistId} /> 
-       ) 
-      }
+      {isSearching && <SearchPagePlaylist playlistId={playlistId} />}
       <br />
       <br />
       <div className="center">
-        <button onClick={
-          () => {
+        <button
+          onClick={() => {
             if (!isSearching) {
-              setTrackButtonContent("Done Searching")
-            }
-            else {
-              setTrackButtonContent("Add Track")
+              setTrackButtonContent("Done Searching");
+            } else {
+              setTrackButtonContent("Add Track");
             }
             setIsSearching(!isSearching);
-          }
-        }>{trackButtonContent}</button>
-        </div>
+          }}
+        >
+          {trackButtonContent}
+        </button>
+      </div>
     </div>
   );
 }

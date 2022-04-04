@@ -13,18 +13,21 @@ function PlayButtonFromSearch(props) {
 
   const onClickFunction = async () => {
     console.log("search");
-    const tracks = await searchYouTube(`${artistName} - ${trackName} from ${albumName}`);
-
-    addTrackToLocalPlaylist({
-      albumName: albumName,
-      trackName: trackName,
-      albumArt: albumArt,
-      artistName: artistName,
-      url: tracks.results[0].video.url,
-    },
-    playlistId
+    const tracks = await searchYouTube(
+      `${artistName} - ${trackName} from ${albumName}`
     );
-    const trackItem = document.getElementById(`${index}`)
+
+    addTrackToLocalPlaylist(
+      {
+        albumName: albumName,
+        trackName: trackName,
+        albumArt: albumArt,
+        artistName: artistName,
+        url: tracks.results[0].video.url,
+      },
+      playlistId
+    );
+    const trackItem = document.getElementById(`${index}`);
     trackItem.style.display = "none";
   };
 

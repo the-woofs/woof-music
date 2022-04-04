@@ -2,16 +2,14 @@ import "./index.css";
 
 import ExplicitArea from "../ExplicitArea";
 import Drawer from "../Drawer";
-import GradientButton from "../GradientButton";
-import Avatar from "../Avatar";
 
-import { initializeApp } from "firebase/app";
-import {
-  getAuth,
-  getRedirectResult,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from "firebase/auth";
+// import { initializeApp } from "firebase/app";
+// import {
+//   getAuth,
+//   getRedirectResult,
+//   GoogleAuthProvider,
+//   signInWithPopup,
+// } from "firebase/auth";
 
 function LeftPanel(props) {
   const {
@@ -21,23 +19,23 @@ function LeftPanel(props) {
     playlistSetState,
     queueSetState,
     isLoggedIn,
-    firebaseConfig,
-    isLoading,
+//    firebaseConfig,
+//    isLoading,
     viewingPlaylistSetState,
   } = props;
 
-  initializeApp(firebaseConfig);
+  // initializeApp(firebaseConfig);
 
-  initializeApp(firebaseConfig);
+  // initializeApp(firebaseConfig);
 
-  const auth = getAuth();
+  // const auth = getAuth();
 
-  // TODO: Make Different Authentication Providers Later On. Only Goolge for now.
-  const googleAuthProvider = new GoogleAuthProvider();
+  // // TODO: Make Different Authentication Providers Later On. Only Goolge for now.
+  // const googleAuthProvider = new GoogleAuthProvider();
 
-  const signInWithGoogle = async () => {
-    await signInWithPopup(auth, googleAuthProvider);
-  };
+  // const signInWithGoogle = async () => {
+  //   await signInWithPopup(auth, googleAuthProvider);
+  // };
 
   return (
     <div class="PanelDiv">
@@ -69,17 +67,16 @@ function LeftPanel(props) {
             playlistSetState={playlistSetState}
             queueSetState={queueSetState}
             isLoggedIn={isLoggedIn}
-            firebaseConfig={firebaseConfig}
             viewingPlaylistSetState={viewingPlaylistSetState}
           />
           <hr />
-          <div class="AccountCenterDiv">
-            {isLoggedIn && !isLoading && (
-              <button className="SignOutButton" onClick={() => auth.signOut()}>
-                Sign Out
+          {/* <div class="accountcenterdiv">
+            {isloggedin && !isloading && (
+              <button classname="signoutbutton" onclick={() => auth.signout()}>
+                sign out
               </button>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
       <ExplicitArea>{children}</ExplicitArea>

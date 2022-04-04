@@ -46,24 +46,24 @@ function SearchPage(props) {
           searchResults.results &&
           searchResults.results.map((item, index) => {
             return (
-              <div id={index} >
-              <TrackListItem
-                trackName={item.trackName}
-                artistName={item.artistName}
-                albumName={item.collectionName}
-                albumArt={item.artworkUrl100}
-                button={
-                  <AddButtonFromSearch
-                    trackName={item.trackName}
-                    artistName={item.artistName}
-                    albumName={item.collectionName}
-                    albumArt={item.artworkUrl100}
-                    playlistId={playlistId}
-                    index={`${index}`}
-                  />
-                }
+              <div id={index}>
+                <TrackListItem
+                  trackName={item.trackName}
+                  artistName={item.artistName}
+                  albumName={item.collectionName}
+                  albumArt={item.artworkUrl100}
+                  button={
+                    <AddButtonFromSearch
+                      trackName={item.trackName}
+                      artistName={item.artistName}
+                      albumName={item.collectionName}
+                      albumArt={item.artworkUrl100}
+                      playlistId={playlistId}
+                      index={`${index}`}
+                    />
+                  }
                 />
-                </div>
+              </div>
             );
           })}
       </div>

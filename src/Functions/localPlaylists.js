@@ -30,11 +30,11 @@ function addLocalPlaylist(playlistObject) {
     playlists = [];
   }
 
-  if (playlist.name == "") {
+  if (playlist.name === "") {
     playlist.name = "New Playlist";
   }
 
-  if (playlist.description == "") {
+  if (playlist.description === "") {
     playlist.description = "A local playlist.";
   }
 
