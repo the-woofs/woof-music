@@ -11,7 +11,6 @@ import SearchPagePlaylist from "../SearchPagePlaylist";
 import {
   PlayArrowRounded,
   PauseRounded,
-  ShareRounded,
   AddRounded
 } from "@mui/icons-material";
 
@@ -21,7 +20,7 @@ function PlaylistPage(props) {
     trackStateFunction,
     isLocal,
     playerRef,
-    trackId,
+//    trackId,
     setTrackId,
     queue,
     setQueue,
@@ -104,9 +103,8 @@ function PlaylistPage(props) {
                 />
               </button>
             )}
-            <button className='IconButton ShareButton' onClick={
-              addQueueFunc
-              }>
+            <button className='IconButton ShareButton' onClick=
+              {addQueueFunc}>
                  <AddRounded />
                </button>
           </div>
