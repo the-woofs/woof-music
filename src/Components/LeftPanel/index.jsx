@@ -19,8 +19,8 @@ function LeftPanel(props) {
     playlistSetState,
     queueSetState,
     isLoggedIn,
-//    firebaseConfig,
-//    isLoading,
+    //    firebaseConfig,
+    //    isLoading,
     viewingPlaylistSetState,
   } = props;
 

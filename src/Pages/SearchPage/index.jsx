@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import "./index.css";
 
@@ -13,21 +13,21 @@ function SearchPage(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState({});
 
-  useEffect(() => {
-    let isMounted = true;
-    if (searchTerm.length > 0 && isMounted && searchTerm !== "") {
-      musicSearch(searchTerm)
-        .then((data) => {
-          setSearchResults(data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    return () => {
-      isMounted = false;
-    };
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   if (searchTerm.length > 0 && isMounted && searchTerm !== "") {
+  //     musicSearch(searchTerm)
+  //       .then((data) => {
+  //         setSearchResults(data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, [searchTerm]);
 
   const onChangeFunction = (e) => {
     setSearchTerm(e.target.value);
@@ -35,7 +35,18 @@ function SearchPage(props) {
 
   return (
     <div className="SearchPage">
-      <SearchBar onChangeText={onChangeFunction} />
+      <SearchBar
+        onChangeText={onChangeFunction}
+        onEnterKeyPress={() => {
+          musicSearch(searchTerm)
+            .then((data) => {
+              setSearchResults(data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
+      />
       <div className="SearchItems">
         {searchResults &&
           searchResults.results &&

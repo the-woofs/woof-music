@@ -12,20 +12,13 @@ import {
 } from "@mui/icons-material";
 
 function CurrentlyPlayingInfo(props) {
-  const {
-    artistName,
-    albumArt,
-    trackName,
-    url,
-    playing,
-    muted,
-    playerRef,
-  } = props;
+  const { artistName, albumArt, trackName, url, playing, muted, playerRef } =
+    props;
 
   const [playedValue, setPlayedValue] = useState(0);
   const [isPlaying, setIsPlaying] = useState(playing);
   const [isMuted, setIsMuted] = useState(muted);
-  console.log(setIsMuted)
+  console.log(setIsMuted);
   const [volume, setVolume] = useState(0.5);
 
   const [newPlayedValue, setNewPlayedValue] = useState(0);
@@ -41,7 +34,7 @@ function CurrentlyPlayingInfo(props) {
     } catch (err) {
       console.log(err);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [newPlayedValue]);
 
   return (

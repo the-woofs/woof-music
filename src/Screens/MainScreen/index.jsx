@@ -15,7 +15,7 @@ import { saveQueue, getQueue, playFromQueue } from "../../Functions/queue";
 
 function MainScreen(props) {
   const { isLoggedIn, firebaseConfig, isLoading } = props;
-  
+
   const [track, setTrack] = useState({});
   const [onBufferEnd, setOnBufferEnd] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -43,7 +43,7 @@ function MainScreen(props) {
     } catch (error) {
       console.log(error);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
