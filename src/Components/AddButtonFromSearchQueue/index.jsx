@@ -13,7 +13,7 @@ function AddButtonFromSearch(props) {
   const onClickFunction = async () => {
     console.log("search");
     const tracks = await searchYouTube(
-      `${artistName} - ${trackName} from ${albumName}`
+      `${artistName} - ${trackName} from ${albumName} Official`
     );
 
     addToQueue(queue, setQueue, {
